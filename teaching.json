@@ -1,0 +1,115 @@
+{
+  "courses": [
+    {
+      "title": "Baltic Politics",
+      "institution": "Dartmouth College",
+      "type": "Foreign Study Program",
+      "description": "Quarter-length program taking students through Lithuania, Latvia, and Estonia. Explores the region through topics related to democracy and discrimination, focusing on conflicts between representation and inclusion. Features guest lectures from local academics, diplomats, journalists, and policy professionals.",
+      "locations": ["Vilnius", "Riga", "Tartu"],
+      "terms": ["Summer 2023", "Summer 2024"],
+      "keywords": ["baltic", "democracy", "discrimination", "foreign study", "lithuania", "latvia", "estonia"]
+    },
+    {
+      "title": "Honors Research in Government",
+      "institution": "Dartmouth College",
+      "type": "Honors Program",
+      "description": "Co-directed the Department of Government's Honors Program. Guides students in producing independent research, requiring completion of Honors Research course in fall, winter and spring terms working with faculty advisers, and thesis defense in public presentation.",
+      "terms": ["Fall 2024", "Fall 2025"],
+      "evaluations": {
+        "Fall 2024": {
+          "course_quality": "4.75/5",
+          "teaching_effectiveness": "4.86/5"
+        }
+      },
+      "keywords": ["honors", "thesis", "research", "independent study", "advising"]
+    },
+    {
+      "title": "Experiments in Politics",
+      "institution": "Dartmouth College",
+      "type": "Course",
+      "description": "Teaches students how to design, implement, analyze, and write up results from experiments focused on discrimination. Students work throughout the term with the goal of publishing papers after the quarter ends. Has resulted in two published papers with students.",
+      "terms": ["Winter 2021", "Fall 2022", "Winter 2023"],
+      "evaluations": {
+        "Winter 2021": {
+          "course_quality": "4.82/5",
+          "teaching_effectiveness": "4.91/5"
+        },
+        "Fall 2022": {
+          "course_quality": "4.71/5",
+          "teaching_effectiveness": "4.67/5"
+        },
+        "Winter 2023": {
+          "course_quality": "4.54/5",
+          "teaching_effectiveness": "4.75/5"
+        }
+      },
+      "keywords": ["experiments", "discrimination", "research design", "methods", "publishing"]
+    },
+    {
+      "title": "Quantitative Political Analysis",
+      "institution": "Dartmouth College",
+      "type": "Course",
+      "description": "Teaches students the basics of computational social science, with work culminating in a quantitative-focused research paper.",
+      "terms": ["Winter 2021", "Spring 2021", "Fall 2022", "Winter 2023"],
+      "evaluations": {
+        "Winter 2021": {
+          "course_quality": "5/5",
+          "teaching_effectiveness": "5/5"
+        },
+        "Spring 2021": {
+          "course_quality": "4.54/5",
+          "teaching_effectiveness": "4.75/5"
+        },
+        "Fall 2022": {
+          "course_quality": "4.41/5",
+          "teaching_effectiveness": "4.77/5"
+        },
+        "Winter 2023": {
+          "course_quality": "4.67/5",
+          "teaching_effectiveness": "4.75/5"
+        }
+      },
+      "keywords": ["quantitative", "statistics", "computational", "data analysis", "R", "methods"]
+    }
+  ],
+  "programs": {
+    "baltic_leap": {
+      "name": "Baltic LEAP (Language, Energy, and Politics)",
+      "type": "Foreign Study Program",
+      "role": "Co-founder and Co-director",
+      "institution": "Dartmouth College",
+      "description": "Innovative quarter-length program through Lithuania, Latvia, and Estonia. Students spend approximately four weeks in Vilnius, two weeks in Riga, and four weeks in Tartu, with trips to Jūrmala, Kaunas, Klaipėda, Daugavpils, Narva, Sillamäe, and Tallinn. Lauded by Guarini Institute as 'innovative' and 'cutting edge.'",
+      "years": ["2023", "2024"],
+      "student_feedback": [
+        "truly life-changing!",
+        "by far the most unique experience you will have",
+        "honestly … one of the best experiences of my life"
+      ],
+      "impact": [
+        "Influenced understanding of own cultural identity and biases",
+        "Made students take a more global view",
+        "Helped better connect with different types of people"
+      ]
+    }
+  },
+  "teaching_philosophy": "I view teaching and mentoring as ongoing conversations that occur both in and outside the classroom. In class, I teach students about statistical reasoning, research design, democratization, and discrimination. Outside of class, I try to be approachable, encouraging, and emotionally supportive.",
+  "institutions": [
+    {
+      "name": "Monash University",
+      "role": "Senior Lecturer (Associate Professor)",
+      "courses": ["Political Theory in a Changing World: Concepts, Issues and Debates"]
+    },
+    {
+      "name": "Korea University",
+      "role": "K-CLUB Professor"
+    },
+    {
+      "name": "Essex Summer School",
+      "courses": ["AI-Enhanced Research Design", "Geospatial Data and Spatial Analysis"]
+    },
+    {
+      "name": "IPSA-NUS Summer School",
+      "courses": ["AI and Experimental Methods", "AI and Research Methods"]
+    }
+  ]
+}

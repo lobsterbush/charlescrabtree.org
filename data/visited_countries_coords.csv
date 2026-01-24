@@ -1,0 +1,32 @@
+country,ne_name,iso_a3,lat,lon
+USA,United States of America,USA,37.2367,-99.3148
+Canada,Canada,CAN,56.7019,-110.2438
+Poland,Poland,POL,51.8844,19.0763
+Germany,Germany,DEU,51.4312,10.4324
+France,France,-99,46.8951,2.0992
+Ireland,Ireland,IRL,53.5104,-7.8067
+Italy,Italy,ITA,42.5582,12.6312
+Norway,Norway,-99,79.9581,22.6825
+Sweden,Sweden,SWE,62.2749,14.7862
+Russia,Russia,RUS,59.4059,88.5973
+Ukraine,Ukraine,UKR,48.8046,30.9808
+Turkey,Turkey,TUR,38.6335,35.4549
+Egypt,Egypt,EGY,26.8955,29.3695
+Vietnam,Vietnam,VNM,15.9941,107.7769
+South Korea,South Korea,KOR,36.205,127.9014
+Japan,Japan,JPN,36.0934,138.3489
+Cambodia,Cambodia,KHM,12.8657,104.9987
+Singapore,Singapore,,,
+Australia,Australia,AUS,-24.8415,133.0586
+Lithuania,Lithuania,LTU,55.0912,24.1278
+Latvia,Latvia,LVA,56.8951,24.5044
+Estonia,Estonia,EST,58.4981,25.5617
+Netherlands,Netherlands,NLD,52.0402,5.3981
+Switzerland,Switzerland,CHE,46.8097,8.2865
+Brazil,Brazil,BRA,-14.0737,-49.7116
+Argentina,Argentina,ARG,-37.2392,-64.0806
+Georgia,Georgia,GEO,42.2976,43.602
+Belarus,Belarus,BLR,53.706,27.7864
+Croatia,Croatia,HRV,44.5448,15.5836
+Montenegro,Montenegro,MNE,42.7505,19.3962
+Serbia,Serbia,SRB,44.1367,21.0135

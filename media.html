@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media | Charles Crabtree</title>
+    <meta name="description" content="Public writing, media appearances, and commentary on politics, research, and society">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=5">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">CC</a>
+            <div class="nav-links">
+                <a href="research.html" class="nav-link">Research</a>
+                <a href="publications.html" class="nav-link">Publications</a>
+                <a href="teaching.html" class="nav-link">Teaching</a>
+                <a href="media.html" class="nav-link active">Media</a>
+                <a href="collaboration.html" class="nav-link">Collaboration</a>
+                <a href="students.html" class="nav-link">Students</a>
+                <a href="https://www.dropbox.com/s/k3hee0zcbczj142/c_crabtree_cv.pdf?dl=0" class="nav-link nav-cta" target="_blank">CV</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-inner">
+            <a href="index.html" class="mobile-link">Welcome</a>
+            <a href="research.html" class="mobile-link">Research</a>
+            <a href="publications.html" class="mobile-link">Publications</a>
+            <a href="teaching.html" class="mobile-link">Teaching</a>
+            <a href="media.html" class="mobile-link">Media</a>
+            <a href="collaboration.html" class="mobile-link">Collaboration</a>
+            <a href="students.html" class="mobile-link">Students</a>
+            <a href="https://www.dropbox.com/s/k3hee0zcbczj142/c_crabtree_cv.pdf?dl=0" class="mobile-link" target="_blank">CV</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="page">
+        <div class="container">
+            <h1 class="page-title">Media</h1>
+            
+            <section class="section">
+                <p class="lead">I write regularly for public and policy-facing audiences, translating research on intergroup relations, measurement, and conflict into accessible analysis of contemporary political debates.</p>
+                
+                <p>For more of my public writing, visit my <a href="https://authory.com/charlescrabtree" target="_blank">Authory profile</a>.</p>
+            </section>
+
+            <!-- Writing Grid -->
+            <div class="writing-grid" id="writing-grid">
+                <div class="loading-message" style="text-align: center; padding: 4rem; grid-column: 1/-1;">
+                    <p>Loading recent articles...</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-nav-grid">
+                    <div class="footer-section">
+                        <h4>Navigation</h4>
+                        <div class="footer-links">
+                            <a href="research.html">Research</a>
+                            <a href="publications.html">Publications</a>
+                            <a href="teaching.html">Teaching</a>
+                            <a href="media.html">Media</a>
+                            <a href="collaboration.html">Collaboration</a>
+                            <a href="students.html">Students</a>
+                            <a href="universities.html">Universities</a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Connect</h4>
+                        <div class="footer-links">
+                            <a href="mailto:charles.crabtree@monash.edu">Email</a>
+                            <a href="https://scholar.google.com/citations?user=FJHX9LAAAAAJ&hl=en" target="_blank">Google Scholar</a>
+                            <a href="https://authory.com/cdcrabtree" target="_blank">Public Writing</a>
+                            <a href="https://www.dropbox.com/s/k3hee0zcbczj142/c_crabtree_cv.pdf?dl=0" target="_blank">CV</a>
+                            <a href="colophon.html">Colophon</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="footer-brand">
+                        <span class="footer-logo">CC</span>
+                        <span class="footer-name">Charles Crabtree</span>
+                    </div>
+                    <span class="footer-copyright">© 2025 Charles Crabtree</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="chatbot.js"></script>
+    <script src="site-utilities.js"></script>
+    <script>
+        // Load writing articles from JSON
+        async function loadWriting() {
+            const grid = document.getElementById('writing-grid');
+            
+            try {
+                const response = await fetch('writing.json?v=' + Date.now());
+                const data = await response.json();
+                
+                // Clear loading message
+                grid.innerHTML = '';
+                
+                if (!data.articles || data.articles.length === 0) {
+                    grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 4rem;"><p>No articles found. Visit <a href="https://authory.com/cdcrabtree" target="_blank">my Authory profile</a> to see my latest writing.</p></div>';
+                    return;
+                }
+                
+                // Create article cards
+                data.articles.forEach(article => {
+                    const card = document.createElement('article');
+                    card.className = 'writing-card';
+                    
+                    // Detect outlet from URL if not set
+                    let outlet = article.outlet;
+                    if (outlet === 'Publication' && article.url) {
+                        if (article.url.includes('thediplomat.com')) outlet = 'The Diplomat';
+                        else if (article.url.includes('japantimes.co.jp')) outlet = 'The Japan Times';
+                        else if (article.url.includes('eastasiaforum.org')) outlet = 'East Asia Forum';
+                        else if (article.url.includes('lowyinstitute.org')) outlet = 'Lowy Institute';
+                        else if (article.url.includes('flipsnack.com')) outlet = 'Dartmouth Alumni Magazine';
+                    }
+                    
+                    const tagsHTML = article.tags && article.tags.length > 0
+                        ? article.tags.map(tag => `<span class="writing-tag">${tag}</span>`).join('')
+                        : '';
+                    
+                    card.innerHTML = `
+                        <div class="writing-header">
+                            <span class="writing-date">${article.date}</span>
+                            <span class="writing-outlet">${outlet}</span>
+                        </div>
+                        <h3 class="writing-title">
+                            <a href="${article.url}" target="_blank">${article.title}</a>
+                        </h3>
+                        <p class="writing-excerpt">${article.excerpt}</p>
+                        ${tagsHTML ? `<div class="writing-footer">${tagsHTML}</div>` : ''}
+                    `;
+                    
+                    grid.appendChild(card);
+                });
+                
+            } catch (error) {
+                console.error('Error loading writing:', error);
+                grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 4rem;"><p>Unable to load articles. Visit <a href="https://authory.com/cdcrabtree" target="_blank">my Authory profile</a> to see my latest writing.</p></div>';
+            }
+        }
+        
+        // Load articles when page loads
+        document.addEventListener('DOMContentLoaded', loadWriting);
+    </script>
+</body>
+</html>

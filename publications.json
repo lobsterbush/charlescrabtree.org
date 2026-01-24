@@ -1,0 +1,508 @@
+{
+  "publications": [
+    {
+      "title": "Women Use More Positive Language than Men: Candidates' Strategic Use of Emotive Language in Election Campaigns",
+      "authors": ["Tiffany D. Barnes", "Charles Crabtree", "Akitaka Matsuo", "Yoshi Ono"],
+      "journal": "Journal of Politics",
+      "year": "Forthcoming",
+      "keywords": ["gender", "elections", "language", "campaigns", "sentiment", "Japan", "women", "political communication"]
+    },
+    {
+      "title": "Testing the Causal Impact of Social Media Reduction Around the Globe",
+      "authors": ["Steve Rathje", "Charles Crabtree", "et al"],
+      "journal": "Nature",
+      "year": "Forthcoming",
+      "keywords": ["social media", "experiment", "behavior", "global", "technology"]
+    },
+    {
+      "title": "Intersectional Discrimination: A Meta-Analysis of Gendered Racial Discrimination and Racialized Gender Discrimination",
+      "authors": ["S. Michael Gaddis", "Charles Crabtree", "et al"],
+      "journal": "Sociological Science",
+      "year": "Forthcoming",
+      "keywords": ["discrimination", "race", "gender", "intersectionality", "meta-analysis", "audit"]
+    },
+    {
+      "title": "Are Voters Less Likely to Support Politicians When They Wear Face Masks?",
+      "authors": ["Kiho Muroga", "Charles Crabtree"],
+      "journal": "Japanese Journal of Political Science",
+      "year": "Forthcoming",
+      "keywords": ["voting", "Japan", "COVID", "masks", "elections", "experiment"]
+    },
+    {
+      "title": "Does Naming and Shaming Improve Women's Rights? Yes, and Especially in Personalist Regimes",
+      "authors": ["Ghashia Kiyani", "Yuan Zhou", "Charles Crabtree"],
+      "journal": "International Interactions",
+      "year": "Forthcoming",
+      "keywords": ["human rights", "women", "gender", "authoritarian", "regime type", "naming and shaming"]
+    },
+    {
+      "title": "Selective Development Goals: Examining Japan's SDG Implementation Gaps",
+      "authors": ["Paul Christensen", "Charles Crabtree", "et al"],
+      "journal": "Social Science Japan Journal",
+      "year": "Forthcoming",
+      "keywords": ["Japan", "development", "SDG", "policy", "implementation"]
+    },
+    {
+      "title": "Support for Constitutional Rights During Crisis: Evidence from the Pandemic",
+      "authors": ["Adam Chilton", "Kevin Cope", "Charles Crabtree", "Mila Versteeg"],
+      "journal": "American Journal of Comparative Law",
+      "year": 2025,
+      "keywords": ["COVID", "pandemic", "constitution", "rights", "crisis", "experiment", "public opinion"]
+    },
+    {
+      "title": "Yes, You Can Do Global, Cross-Cultural Behavioral Science Research",
+      "authors": ["Charles Crabtree"],
+      "journal": "Proceedings of the National Academy of Sciences",
+      "year": 2025,
+      "keywords": ["methods", "cross-cultural", "global", "research design", "behavioral science"]
+    },
+    {
+      "title": "Geo-political Rivalry and Anti-Immigrant Sentiment: A Conjoint Experiment in 22 Countries",
+      "authors": ["Andreas Wimmer", "Charles Crabtree", "et al"],
+      "journal": "American Political Science Review",
+      "year": 2025,
+      "keywords": ["immigration", "discrimination", "geopolitics", "experiment", "international", "xenophobia", "conjoint"]
+    },
+    {
+      "title": "Mass Receptiveness to Executive Empowerment via Emergency Legislation During Crisis",
+      "authors": ["Harunobu Saijo", "Charles Crabtree"],
+      "journal": "Humanities and Social Sciences Communications",
+      "year": 2025,
+      "keywords": ["crisis", "executive power", "pandemic", "democracy", "authoritarianism", "public opinion"]
+    },
+    {
+      "title": "Americans Do Not Select Their Doctors Based on Race",
+      "authors": ["Reilly Olinger", "Charles Crabtree", "et al"],
+      "journal": "Frontiers of Sociology",
+      "year": 2025,
+      "keywords": ["healthcare", "race", "discrimination", "doctors", "experiment"]
+    },
+    {
+      "title": "Do Voters Punish Women Politicians More?",
+      "authors": ["Semra Sevi", "Charles Crabtree", "André Blais"],
+      "journal": "American Politics Research",
+      "year": 2024,
+      "keywords": ["gender", "women", "voting", "elections", "discrimination", "bias"]
+    },
+    {
+      "title": "Public Opinion about Election Observers in the US: Evidence from a Survey Experiment",
+      "authors": ["Travis Curtice", "Charles Crabtree"],
+      "journal": "International Interactions",
+      "year": 2024,
+      "keywords": ["elections", "observers", "democracy", "experiment", "public opinion"]
+    },
+    {
+      "title": "Do Identity Frames Impact Support for Multiracial Candidates? The Case of Kamala Harris",
+      "authors": ["Katherine Clayton", "Charles Crabtree", "Yusaku Horiuchi"],
+      "journal": "Journal of Experimental Political Science",
+      "year": 2023,
+      "keywords": ["race", "multiracial", "identity", "elections", "experiment", "Kamala Harris"]
+    },
+    {
+      "title": "Validated Names for Experimental Studies on Race and Ethnicity",
+      "authors": ["Charles Crabtree", "Jae Yeon Kim", "S. Michael Gaddis", "et al"],
+      "journal": "Nature Scientific Data",
+      "year": 2023,
+      "keywords": ["methods", "race", "ethnicity", "names", "experiment", "measurement", "audit"]
+    },
+    {
+      "title": "White Candidate Support Continues amidst Explicit and Implicit White Identity Cues",
+      "authors": ["Sean Long", "Charles Crabtree"],
+      "journal": "Politics, Groups, and Identities",
+      "year": 2023,
+      "keywords": ["race", "white identity", "voting", "experiment", "discrimination"]
+    },
+    {
+      "title": "Do Sleep Disruptions Promote Social Fragmentation?",
+      "authors": ["John B. Holbein", "Charles Crabtree"],
+      "journal": "Politics and the Life Sciences",
+      "year": 2023,
+      "keywords": ["sleep", "social capital", "behavior", "health", "fragmentation"]
+    },
+    {
+      "title": "Social and Moral Psychology of COVID-19 Across 69 Countries",
+      "authors": ["Flavio Azevedo", "Charles Crabtree", "et al"],
+      "journal": "Nature Scientific Data",
+      "year": 2023,
+      "keywords": ["COVID", "pandemic", "cross-cultural", "morality", "psychology", "global"]
+    },
+    {
+      "title": "Education and Public Support for COVID-19 Mitigation Measures",
+      "authors": ["Volha Chykina", "Charles Crabtree"],
+      "journal": "Socius",
+      "year": 2023,
+      "keywords": ["COVID", "pandemic", "education", "public health", "public opinion"]
+    },
+    {
+      "title": "Perceived Motives of Public Diplomacy Influence Foreign Public Opinion",
+      "authors": ["Kasey Rhee", "Charles Crabtree", "Yusaku Horiuchi"],
+      "journal": "Political Behavior",
+      "year": 2023,
+      "keywords": ["diplomacy", "public opinion", "international relations", "experiment", "foreign policy"]
+    },
+    {
+      "title": "Why the Public Supports the Human Rights of Prisoners and Asylum Seekers: An Experimental Approach",
+      "authors": ["Charles Crabtree", "Jeong-Woo Koo", "Amanda Murdie", "Kiyoteru Tsutsui"],
+      "journal": "Political Research Quarterly",
+      "year": 2023,
+      "keywords": ["human rights", "prisoners", "asylum", "refugees", "experiment", "public opinion"]
+    },
+    {
+      "title": "Is that Ethical? An Exploration of Political Scientists' Views on Research Ethics",
+      "authors": ["Mia Costa", "Charles Crabtree", "et al"],
+      "journal": "Research & Politics",
+      "year": 2023,
+      "keywords": ["ethics", "research methods", "discipline", "norms"]
+    },
+    {
+      "title": "When Do Private Actors Engage in Censorship? Evidence from Russian Private Media Firms",
+      "authors": ["Quintin Beazer", "Charles Crabtree", "Christopher J. Fariss", "Holger L. Kern"],
+      "journal": "British Journal of Political Science",
+      "year": 2022,
+      "keywords": ["censorship", "Russia", "media", "authoritarian", "experiment", "correspondence"]
+    },
+    {
+      "title": "New Evidence that Naming and Shaming Influences State Human Rights Practices",
+      "authors": ["Yuan Zhou", "Ghashia Kiyani", "Charles Crabtree"],
+      "journal": "Journal of Human Rights",
+      "year": 2022,
+      "keywords": ["human rights", "naming and shaming", "international law", "compliance"]
+    },
+    {
+      "title": "Conceptual and Empirical Issues that Arise When Using Correspondence Audits to Measure Racial Discrimination",
+      "authors": ["Ray Block", "Charles Crabtree", "John B. Holbein", "Quin Monson"],
+      "journal": "Proceedings of the National Academy of Sciences",
+      "year": 2022,
+      "keywords": ["methods", "audit", "discrimination", "race", "correspondence", "measurement"]
+    },
+    {
+      "title": "Racially Distinctive Names Signal Race and Class",
+      "authors": ["Charles Crabtree", "S. Michael Gaddis", "et al"],
+      "journal": "Sociological Science",
+      "year": 2022,
+      "keywords": ["race", "class", "names", "discrimination", "measurement", "audit"]
+    },
+    {
+      "title": "Field Research When There's Limited Access to the Field: Lessons from Japan",
+      "authors": ["Kenya Amano", "Charles Crabtree", "et al"],
+      "journal": "PS: Political Science & Politics",
+      "year": 2022,
+      "keywords": ["Japan", "methods", "fieldwork", "research design", "pandemic"]
+    },
+    {
+      "title": "Migrant-Family Separation and Higher-Order Laws' Diverging Normative Force",
+      "authors": ["Kevin L. Cope", "Charles Crabtree"],
+      "journal": "Journal of Legal Studies",
+      "year": 2022,
+      "keywords": ["immigration", "law", "family separation", "experiment", "public opinion"]
+    },
+    {
+      "title": "Electoral Coalition Signals and Voter Perceptions",
+      "authors": ["Jinhyuk Jang", "Charles Crabtree", "Sona Golder"],
+      "journal": "Japanese Journal of Political Science",
+      "year": 2022,
+      "keywords": ["elections", "coalitions", "voting", "Japan", "experiment"]
+    },
+    {
+      "title": "Building Community and Improving Diversity, Equity, and Inclusion in Political Science through Virtual Workshops",
+      "authors": ["Charles Crabtree"],
+      "journal": "PS: Political Science & Politics",
+      "year": 2022,
+      "keywords": ["diversity", "inclusion", "equity", "workshops", "community", "discipline"]
+    },
+    {
+      "title": "Workshops Without Borders: Building an Online Community of Japan Scholars",
+      "authors": ["Amy Catalinac", "Charles Crabtree", "et al"],
+      "journal": "PS: Political Science & Politics",
+      "year": 2022,
+      "keywords": ["Japan", "community", "workshops", "virtual", "collaboration"]
+    },
+    {
+      "title": "Patient Traits Shape Health-Care Stakeholders' Choices on How to Best Allocate Life-Saving Care",
+      "authors": ["Charles Crabtree", "John B. Holbein", "Quin Monson"],
+      "journal": "Nature Human Behaviour",
+      "year": 2022,
+      "keywords": ["healthcare", "discrimination", "allocation", "experiment", "medical", "COVID", "triage"]
+    },
+    {
+      "title": "National Identity Predicts Public Health Support During a Global Pandemic",
+      "authors": ["Jay J. Van Bavel", "Charles Crabtree", "et al"],
+      "journal": "Nature Communications",
+      "year": 2022,
+      "keywords": ["COVID", "pandemic", "national identity", "public health", "psychology", "global"]
+    },
+    {
+      "title": "Sponsorship Effects in Online Surveys",
+      "authors": ["Charles Crabtree", "Holger L. Kern", "Matt Pietryka"],
+      "journal": "Political Behavior",
+      "year": 2022,
+      "keywords": ["methods", "surveys", "sponsorship", "bias", "measurement"]
+    },
+    {
+      "title": "Are Americans Less Likely to Reply to Emails from Black People Relative to White People?",
+      "authors": ["Ray Block", "Charles Crabtree", "John B. Holbein", "Quin Monson"],
+      "journal": "Proceedings of the National Academy of Sciences",
+      "year": 2021,
+      "keywords": ["discrimination", "race", "racial bias", "email", "correspondence", "experiment", "audit"]
+    },
+    {
+      "title": "Measuring Gender Role Attitudes in Japan",
+      "authors": ["Charles Crabtree", "Kiho Muroga"],
+      "journal": "Socius",
+      "year": 2021,
+      "keywords": ["gender", "Japan", "attitudes", "measurement", "culture", "survey"]
+    },
+    {
+      "title": "How Asians React to Discrimination Doesn't Depend on their Party Identification",
+      "authors": ["Kristo Leung", "Charles Crabtree", "et al"],
+      "journal": "Socius",
+      "year": 2021,
+      "keywords": ["discrimination", "Asian American", "race", "partisanship", "experiment"]
+    },
+    {
+      "title": "Auditing Ethics: A Cost-Benefit Framework for Audit Studies",
+      "authors": ["Charles Crabtree", "Kostanca Dhima"],
+      "journal": "Political Studies Review",
+      "year": 2021,
+      "keywords": ["ethics", "methods", "audit", "correspondence", "research design"]
+    },
+    {
+      "title": "Police and Political Violence",
+      "authors": ["Kristine Eck", "Courtenay Conrad", "Charles Crabtree"],
+      "journal": "Journal of Conflict Resolution",
+      "year": 2021,
+      "keywords": ["police", "violence", "repression", "conflict", "protest"]
+    },
+    {
+      "title": "Evade and Deceive? Citizen Responses to Surveillance",
+      "authors": ["Kristine Eck", "Sophia Hatz", "Charles Crabtree", "Atsushi Tago"],
+      "journal": "Journal of Politics",
+      "year": 2021,
+      "keywords": ["surveillance", "privacy", "authoritarian", "behavior", "experiment", "evasion"]
+    },
+    {
+      "title": "Do Street-Level Bureaucrats Discriminate Based on Religion? A Large-Scale Correspondence Experiment among American Public School Principals",
+      "authors": ["Steven Pfaff", "Charles Crabtree", "Holger L. Kern", "John B. Holbein"],
+      "journal": "Public Administration Review",
+      "year": 2021,
+      "keywords": ["discrimination", "religion", "Muslim", "atheist", "schools", "principals", "experiment", "audit"]
+    },
+    {
+      "title": "A Nationalist Backlash to International Refugee Law: Evidence from a Survey Experiment in Turkey",
+      "authors": ["Kevin L. Cope", "Charles Crabtree"],
+      "journal": "Journal of Empirical Legal Studies",
+      "year": 2020,
+      "keywords": ["refugees", "Turkey", "nationalism", "law", "experiment", "immigration"]
+    },
+    {
+      "title": "It's Not Only What You Say, It's Also How You Say It: The Strategic Use of Campaign Sentiment",
+      "authors": ["Charles Crabtree", "Matt Golder", "Thomas Gschwend", "Indridi Indridason"],
+      "journal": "Journal of Politics",
+      "year": 2020,
+      "keywords": ["elections", "campaigns", "sentiment", "language", "voting", "communication"]
+    },
+    {
+      "title": "Gender Differences in the Prosecution of Police Brutality: Evidence from a Natural Experiment",
+      "authors": ["Kristine Eck", "Charles Crabtree"],
+      "journal": "PLOS ONE",
+      "year": 2020,
+      "keywords": ["police", "brutality", "gender", "prosecution", "violence", "natural experiment"]
+    },
+    {
+      "title": "Persistent Bias Among Local Election Officials",
+      "authors": ["D. Alex Hughes", "Charles Crabtree", "et al"],
+      "journal": "Journal of Experimental Political Science",
+      "year": 2020,
+      "keywords": ["discrimination", "elections", "officials", "bias", "experiment", "audit"]
+    },
+    {
+      "title": "Cults of Personality, Preference Falsification, and the Dictator's Dilemma",
+      "authors": ["Charles Crabtree", "Holger L. Kern", "David Siegel"],
+      "journal": "Journal of Theoretical Politics",
+      "year": 2020,
+      "keywords": ["authoritarian", "dictatorship", "preference falsification", "theory", "personality cult"]
+    },
+    {
+      "title": "Patterns of Disagreement in State Repression Measures",
+      "authors": ["Kevin L. Cope", "Charles Crabtree", "Christopher J. Fariss"],
+      "journal": "Political Science Research and Methods",
+      "year": 2020,
+      "keywords": ["repression", "human rights", "measurement", "methods", "data"]
+    },
+    {
+      "title": "Territorial Contenders in World Politics",
+      "authors": ["Douglas Lemke", "Charles Crabtree"],
+      "journal": "Journal of Conflict Resolution",
+      "year": 2020,
+      "keywords": ["territory", "conflict", "international relations", "war"]
+    },
+    {
+      "title": "Anti-Muslim Bias in the Chinese Labor Market",
+      "authors": ["Chuyu Liu", "Yue Hou", "Charles Crabtree"],
+      "journal": "Journal of Comparative Economics",
+      "year": 2020,
+      "keywords": ["discrimination", "Muslim", "China", "labor market", "religion", "experiment", "audit"]
+    },
+    {
+      "title": "Ideology Justifies Morality: Political Beliefs Predict Moral Foundations",
+      "authors": ["Pete Hatemi", "Charles Crabtree", "Kevin Smith"],
+      "journal": "American Journal of Political Science",
+      "year": 2019,
+      "keywords": ["ideology", "morality", "politics", "beliefs", "psychology", "values"]
+    },
+    {
+      "title": "Legislative Representation and Gender (Bias)",
+      "authors": ["Sona Golder", "Charles Crabtree", "Kostanca Dhima"],
+      "journal": "Political Science",
+      "year": 2019,
+      "keywords": ["gender", "representation", "legislature", "discrimination", "experiment"]
+    },
+    {
+      "title": "Domestic Demand for Human Rights: Free Speech and the Freedom-Security Trade-Off",
+      "authors": ["Nicholas Dietrich", "Charles Crabtree"],
+      "journal": "International Studies Quarterly",
+      "year": 2019,
+      "keywords": ["human rights", "free speech", "security", "trade-off", "experiment"]
+    },
+    {
+      "title": "Evaluating the Influence of International Norms and Sanctioning on State Respect for Rights: A Field Experiment with Foreign Embassies",
+      "authors": ["Zhanna Terechshenko", "Charles Crabtree", "et al"],
+      "journal": "International Interactions",
+      "year": 2019,
+      "keywords": ["human rights", "norms", "international", "embassies", "experiment", "field"]
+    },
+    {
+      "title": "Judging Judicial Review in the American States",
+      "authors": ["Charles Crabtree", "Michael J. Nelson"],
+      "journal": "State Politics & Policy Quarterly",
+      "year": 2019,
+      "keywords": ["judicial review", "courts", "states", "American politics", "law"]
+    },
+    {
+      "title": "Contentious Politics in the Trump Era",
+      "authors": ["Charles Crabtree", "Christian Davenport"],
+      "journal": "PS: Political Science & Politics",
+      "year": 2018,
+      "keywords": ["protest", "Trump", "contentious politics", "American politics"]
+    },
+    {
+      "title": "Beyond Physical Integrity",
+      "authors": ["Kevin L. Cope", "Charles Crabtree", "Yonatan Lupu"],
+      "journal": "Law & Contemporary Problems",
+      "year": 2018,
+      "keywords": ["human rights", "law", "measurement", "torture"]
+    },
+    {
+      "title": "Using Google Trends to Measure Issue Salience for Hard-to-Survey Populations",
+      "authors": ["Volha Chykina", "Charles Crabtree"],
+      "journal": "Socius",
+      "year": 2018,
+      "keywords": ["methods", "Google Trends", "measurement", "survey", "salience"]
+    },
+    {
+      "title": "Using Electromagnetic Signal Propagation Models to Calculate Radio and Television Coverage: An Introduction",
+      "authors": ["Charles Crabtree", "Holger L. Kern"],
+      "journal": "Political Analysis",
+      "year": 2018,
+      "keywords": ["methods", "media", "measurement", "GIS", "spatial"]
+    },
+    {
+      "title": "Last Name Selection in Audit Studies",
+      "authors": ["Charles Crabtree", "Volha Chykina"],
+      "journal": "Sociological Science",
+      "year": 2018,
+      "keywords": ["methods", "audit", "names", "discrimination", "measurement"]
+    },
+    {
+      "title": "Mass Media and the Diffusion of Collective Action in Authoritarian Regimes: The June 1953 East German Uprising",
+      "authors": ["Charles Crabtree", "Holger L. Kern", "Steven Pfaff"],
+      "journal": "International Studies Quarterly",
+      "year": 2018,
+      "keywords": ["media", "protest", "authoritarian", "East Germany", "diffusion", "collective action"]
+    },
+    {
+      "title": "It's All About Race: How State Legislators Respond to Immigrant Constituents",
+      "authors": ["Micah Gell-Redman", "Charles Crabtree", "et al"],
+      "journal": "Political Research Quarterly",
+      "year": 2018,
+      "keywords": ["discrimination", "race", "immigration", "legislature", "experiment", "audit"]
+    },
+    {
+      "title": "Defining the Terms of the Debate: Repression, Oppression, and Discrimination",
+      "authors": ["Charles Crabtree", "Christian Davenport"],
+      "journal": "PS: Political Science & Politics",
+      "year": 2018,
+      "keywords": ["repression", "oppression", "discrimination", "concepts", "theory"]
+    },
+    {
+      "title": "Moving Beyond Measurement: Adapting Audit Studies to Test Bias-Reducing Interventions",
+      "authors": ["Daniel M. Butler", "Charles Crabtree"],
+      "journal": "Journal of Experimental Political Science",
+      "year": 2017,
+      "keywords": ["methods", "audit", "discrimination", "experiment", "intervention"]
+    },
+    {
+      "title": "plotrr: Functions for Making Visual Exploratory Data Analysis with Nested Data Easier",
+      "authors": ["Charles Crabtree", "Michael J. Nelson"],
+      "journal": "Journal of Open Source Software",
+      "year": 2017,
+      "keywords": ["methods", "R", "software", "visualization", "data analysis"]
+    },
+    {
+      "title": "New Evidence for a Positive Relationship Between De Facto Judicial Independence and State Respect for Empowerment Rights",
+      "authors": ["Charles Crabtree", "Michael J. Nelson"],
+      "journal": "International Studies Quarterly",
+      "year": 2017,
+      "keywords": ["human rights", "judicial independence", "courts", "law"]
+    },
+    {
+      "title": "Party System Volatility in Post-Communist Europe",
+      "authors": ["Charles Crabtree", "Matt Golder"],
+      "journal": "British Journal of Political Science",
+      "year": 2017,
+      "keywords": ["parties", "volatility", "Eastern Europe", "post-communist", "elections"]
+    },
+    {
+      "title": "The Relationship between Sexual Preferences and Political Orientations: Do Positions in the Bedroom affect Positions in the Ballot Box?",
+      "authors": ["Pete Hatemi", "Charles Crabtree", "Rose McDermott"],
+      "journal": "Personality and Individual Differences",
+      "year": 2016,
+      "keywords": ["ideology", "psychology", "sexuality", "politics", "behavior"]
+    },
+    {
+      "title": "The 2015 Belarusian Presidential Election",
+      "authors": ["Charles Crabtree", "Christopher J. Fariss", "Paul Schuler"],
+      "journal": "Electoral Studies",
+      "year": 2016,
+      "keywords": ["Belarus", "elections", "authoritarian", "fraud"]
+    },
+    {
+      "title": "Stylized Facts and Experimentation",
+      "authors": ["Charles Crabtree", "Christopher J. Fariss"],
+      "journal": "Sociological Science",
+      "year": 2016,
+      "keywords": ["methods", "experiment", "stylized facts", "research design"]
+    },
+    {
+      "title": "Uncovering Patterns Among Latent Variables: Human Rights and Judicial Independence",
+      "authors": ["Charles Crabtree", "Christopher J. Fariss"],
+      "journal": "Research & Politics",
+      "year": 2015,
+      "keywords": ["human rights", "judicial independence", "methods", "measurement"]
+    },
+    {
+      "title": "A Spatial Analysis of the Impact of West German Television on Protest Mobilization During the East German Revolution",
+      "authors": ["Charles Crabtree", "David Darmofal", "Holger L. Kern"],
+      "journal": "Journal of Peace Research",
+      "year": 2015,
+      "keywords": ["media", "protest", "East Germany", "diffusion", "spatial", "revolution"]
+    },
+    {
+      "title": "Human Rights Texts: Converting Human Rights Primary Source Documents into Data",
+      "authors": ["Christopher J. Fariss", "Charles Crabtree", "et al"],
+      "journal": "PLOS ONE",
+      "year": 2015,
+      "keywords": ["human rights", "methods", "text analysis", "data", "measurement"]
+    }
+  ]
+}

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universities Visited | Charles Crabtree</title>
+    <meta name="description" content="Colleges and universities visited">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=5">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">CC</a>
+            <div class="nav-links">
+                <a href="research.html" class="nav-link">Research</a>
+                <a href="publications.html" class="nav-link">Publications</a>
+                <a href="teaching.html" class="nav-link">Teaching</a>
+                <a href="media.html" class="nav-link">Media</a>
+                <a href="collaboration.html" class="nav-link">Collaboration</a>
+                <a href="students.html" class="nav-link">Students</a>
+                <a href="https://www.dropbox.com/s/k3hee0zcbczj142/c_crabtree_cv.pdf?dl=0" class="nav-link nav-cta" target="_blank">CV</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-inner">
+            <a href="index.html" class="mobile-link">Welcome</a>
+            <a href="research.html" class="mobile-link">Research</a>
+            <a href="publications.html" class="mobile-link">Publications</a>
+            <a href="teaching.html" class="mobile-link">Teaching</a>
+            <a href="media.html" class="mobile-link">Media</a>
+            <a href="collaboration.html" class="mobile-link">Collaboration</a>
+            <a href="students.html" class="mobile-link">Students</a>
+            <a href="https://www.dropbox.com/s/k3hee0zcbczj142/c_crabtree_cv.pdf?dl=0" class="mobile-link" target="_blank">CV</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="page">
+        <div class="container">
+            <h1 class="page-title">Visited Colleges and Universities</h1>
+            
+            <section class="section">
+                <p>When I was a young child, my mom and I would visit <a href="https://www.wwu.edu/" target="_blank">Western Washington University</a> every Sunday. They held public showings of <em>Star Trek: The Next Generation</em> episodes and provided free food to attendees. It was often the best meal we'd have all week. Perhaps because of my special times at WWU, colleges and universities have long been special places to me. They are beacons of learning and hope in a world that too often seems disinterested in both, and they're also crucial centers of community. I enjoy visiting as many of them as possible. Please invite me to yours! 🧳</p>
+            </section>
+
+            <section class="section">
+                <div id="visited-universities-map" class="map-container"></div>
+                <p class="map-caption">Colleges and universities visited worldwide (click markers for details)</p>
+            </section>
+
+            <section class="section">
+                <h2>Complete List</h2>
+                <ul class="pub-list collaborator-two-col">
+                    <li>Antalya Bilim University</li>
+                    <li>Aoyama Gakuin University</li>
+                    <li>Arapahoe Community College</li>
+                    <li>Art Academy of Latvia</li>
+                    <li>Belarusian State University</li>
+                    <li>Chiba University</li>
+                    <li>Colorado Mesa University</li>
+                    <li>Community College of Denver</li>
+                    <li>Columbia University</li>
+                    <li>Cornell University</li>
+                    <li>Dartmouth College</li>
+                    <li>Daugavpils University</li>
+                    <li>DePaul University</li>
+                    <li>Denver University</li>
+                    <li>ETH Zurich</li>
+                    <li>Florida State University</li>
+                    <li>Front Range Community College</li>
+                    <li>Harvard University</li>
+                    <li>Hiroshima University</li>
+                    <li>Hokkaido University</li>
+                    <li>Indiana University of Pennsylvania</li>
+                    <li>Jagiellonian University</li>
+                    <li>Johns Hopkins University</li>
+                    <li>Keio University</li>
+                    <li>Kobe University</li>
+                    <li>Koc University</li>
+                    <li>Konstanz University</li>
+                    <li>Korea Advanced Institute of Science and Technology</li>
+                    <li>Korea University</li>
+                    <li>Kochi University of Technology</li>
+                    <li>Loyola University Chicago</li>
+                    <li>Massachusetts Institute of Technology</li>
+                    <li>McGill University</li>
+                    <li>Meiji Gakuin University</li>
+                    <li>Metropolitan State University of Denver</li>
+                    <li>Michigan State University</li>
+                    <li>Mimar Sinan Güzel Sanatlar Üniversitesi</li>
+                    <li>Minsk State Linguistic University</li>
+                    <li>Monash University</li>
+                    <li>National University of Singapore</li>
+                    <li>Naropa University</li>
+                    <li>New York University</li>
+                    <li>Notre Dame University</li>
+                    <li>Northwestern University</li>
+                    <li>Pennsylvania State University</li>
+                    <li>Riga Technical University</li>
+                    <li>Riga Stradins University</li>
+                    <li>Regis University</li>
+                    <li>Ryerson University</li>
+                    <li>Sciences Po</li>
+                    <li>Stanford University</li>
+                    <li>Sungkyunkwan University</li>
+                    <li>Sungshin Women's University</li>
+                    <li>Syracuse University</li>
+                    <li>Tbilisi State University</li>
+                    <li>Tohoku University</li>
+                    <li>Trinity College, Dublin</li>
+                    <li>United States Air Force Academy</li>
+                    <li>University of Amsterdam</li>
+                    <li>University of Belgrade</li>
+                    <li>University College, Dublin</li>
+                    <li>University of California, Berkeley</li>
+                    <li>University of California, Los Angeles</li>
+                    <li>University of California, Merced</li>
+                    <li>University of California, Riverside</li>
+                    <li>University of Chicago</li>
+                    <li>University of Colorado, Boulder</li>
+                    <li>University of Colorado, Colorado Springs</li>
+                    <li>University of Colorado, Denver</li>
+                    <li>University of Dayton</li>
+                    <li>University of Florence</li>
+                    <li>University of Georgia</li>
+                    <li>University of Iowa</li>
+                    <li>University of Illinois, Urbana-Champaign</li>
+                    <li>University of Latvia</li>
+                    <li>University of Michigan</li>
+                    <li>University of Mississippi</li>
+                    <li>University of New Mexico</li>
+                    <li>University of Oslo</li>
+                    <li>University of Pittsburgh</li>
+                    <li>University of San Francisco</li>
+                    <li>University of South Carolina</li>
+                    <li>University of Tartu</li>
+                    <li>University of Tartu Narva College</li>
+                    <li>University of Tokyo</li>
+                    <li>University of Toronto</li>
+                    <li>University of Texas, Austin</li>
+                    <li>University of Virginia</li>
+                    <li>University of Warsaw</li>
+                    <li>University of Washington</li>
+                    <li>University of Western Ontario</li>
+                    <li>University of Zagreb</li>
+                    <li>University of Zurich</li>
+                    <li>Uppsala University</li>
+                    <li>Vilnius University</li>
+                    <li>Waseda University</li>
+                    <li>Washington University in St. Louis</li>
+                    <li>Wayne State University</li>
+                    <li>Western Washington University</li>
+                    <li>Whatcom Community College</li>
+                    <li>Yale-NUS College</li>
+                    <li>Yale University</li>
+                    <li>Yonsei University</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-nav-grid">
+                    <div class="footer-section">
+                        <h4>Navigation</h4>
+                        <div class="footer-links">
+                            <a href="research.html">Research</a>
+                            <a href="publications.html">Publications</a>
+                            <a href="teaching.html">Teaching</a>
+                            <a href="media.html">Media</a>
+                            <a href="collaboration.html">Collaboration</a>
+                            <a href="students.html">Students</a>
+                            <a href="universities.html">Universities</a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Connect</h4>
+                        <div class="footer-links">
+                            <a href="mailto:charles.crabtree@monash.edu">Email</a>
+                            <a href="https://scholar.google.com/citations?user=FJHX9LAAAAAJ&hl=en" target="_blank">Google Scholar</a>
+                            <a href="https://www.dropbox.com/s/k3hee0zcbczj142/c_crabtree_cv.pdf?dl=0" target="_blank">CV</a>
+                            <a href="colophon.html">Colophon</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="footer-brand">
+                        <span class="footer-logo">CC</span>
+                        <span class="footer-name">Charles Crabtree</span>
+                    </div>
+                    <span class="footer-copyright">© 2025 Charles Crabtree</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="maps.js"></script>
+    <script src="chatbot.js"></script>
+    <script src="site-utilities.js"></script>
+</body>
+</html>

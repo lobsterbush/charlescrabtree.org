@@ -1,0 +1,41 @@
+name: Update Writing Content
+
+on:
+  schedule:
+    # Run daily at 6am UTC (10pm PST / 1am EST)
+    - cron: '0 6 * * *'
+  workflow_dispatch:  # Allows manual trigger from Actions tab
+
+jobs:
+  update-content:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      
+      - name: Install dependencies
+        run: pip install feedparser
+      
+      - name: Fetch latest articles from Authory
+        run: python3 fetch_authory.py
+      
+      - name: Commit and push if changes
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add writing.json
+          
+          # Only commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to writing.json"
+          else
+            git commit -m "Auto-update: Latest articles from Authory RSS ($(date -u +%Y-%m-%d))"
+            git push
+            echo "✅ writing.json updated with latest articles"
+          fi
