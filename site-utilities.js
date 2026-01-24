@@ -523,8 +523,19 @@ class Breadcrumbs {
     }
 
     init() {
-        // Don't show breadcrumbs on homepage
-        if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
+        // Don't show breadcrumbs on homepage or main nav pages
+        const path = window.location.pathname;
+        const noBreplacecrumbs = [
+            'index.html',
+            'research.html',
+            'publications.html',
+            'teaching.html',
+            'media.html',
+            'collaboration.html',
+            'students.html'
+        ];
+        
+        if (path === '/' || noBreplacecrumbs.some(page => path.endsWith(page))) {
             return;
         }
 
