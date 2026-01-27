@@ -203,7 +203,7 @@ a i {
 
 .nav-links {
     display: flex;
-    gap: 0.8rem;
+    gap: 0.6rem;
     align-items: center;
 }
 
