@@ -525,17 +525,18 @@ class Breadcrumbs {
     init() {
         // Don't show breadcrumbs on homepage or main nav pages
         const path = window.location.pathname;
-        const noBreplacecrumbs = [
+        const noBreadcrumbs = [
             'index.html',
             'research.html',
             'publications.html',
             'teaching.html',
             'media.html',
             'collaboration.html',
-            'students.html'
+            'students.html',
+            'universities.html'
         ];
         
-        if (path === '/' || noBreplacecrumbs.some(page => path.endsWith(page))) {
+        if (path === '/' || noBreadcrumbs.some(page => path.endsWith(page))) {
             return;
         }
 

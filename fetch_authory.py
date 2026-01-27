@@ -102,7 +102,7 @@ def get_fallback_articles():
     return [
         {
             "title": "View All My Public Writing",
-            "url": "https://authory.com/charlescrabtree",
+            "url": "https://authory.com/cdcrabtree",
             "date": "Current",
             "outlet": "Authory Portfolio",
             "excerpt": "Visit my Authory profile to see all of my public writing and commentary on politics, research, discrimination, and social science methods.",
