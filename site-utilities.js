@@ -382,21 +382,29 @@ class ExpandCollapseAll {
 class SiteSearch {
     constructor() {
         this.pages = [
-            { title: 'Home', url: 'index.html', keywords: 'charles crabtree political scientist research discrimination' },
-            { title: 'Research', url: 'research.html', keywords: 'working papers manuscripts research projects discrimination class' },
-            { title: 'Publications', url: 'publications.html', keywords: 'publications articles journals papers peer-reviewed' },
-            { title: 'Teaching', url: 'teaching.html', keywords: 'teaching courses balticsbaltic leap dartmouth quantitative' },
-            { title: 'Media', url: 'media.html', keywords: 'media writing op-eds public authory' },
-            { title: 'Collaboration', url: 'collaboration.html', keywords: 'collaboration coauthors workshops aposs jposs vwar' },
-            { title: 'Students', url: 'students.html', keywords: 'students advising thesis independent study' },
-            { title: 'Universities', url: 'universities.html', keywords: 'universities visited conferences talks' }
+            { title: 'Home', url: 'index.html' },
+            { title: 'Research', url: 'research.html' },
+            { title: 'Publications', url: 'publications.html' },
+            { title: 'Teaching', url: 'teaching.html' },
+            { title: 'Dartmouth Teaching', url: 'dartmouth-teaching.html' },
+            { title: 'Course Evaluations', url: 'evaluations.html' },
+            { title: 'Teaching Assistant', url: 'ta.html' },
+            { title: 'Media', url: 'media.html' },
+            { title: 'Collaboration', url: 'collaboration.html' },
+            { title: 'Coauthors', url: 'coauthors.html' },
+            { title: 'Universities', url: 'universities.html' },
+            { title: 'Students', url: 'students.html' },
+            { title: 'Colophon', url: 'colophon.html' }
         ];
+        this.searchIndex = [];
+        this.indexingComplete = false;
         this.init();
     }
 
     init() {
         this.createSearchUI();
         this.attachListeners();
+        this.buildSearchIndex();
     }
 
     createSearchUI() {
@@ -484,16 +492,125 @@ class SiteSearch {
         document.body.style.overflow = '';
     }
 
+    async buildSearchIndex() {
+        // Build full-text search index from all pages
+        const indexPromises = this.pages.map(async (page) => {
+            try {
+                const response = await fetch(page.url);
+                const html = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                
+                // Extract main content, excluding nav, footer, and scripts
+                const mainContent = doc.querySelector('main') || doc.body;
+                
+                // Remove navigation, footer, and script elements
+                const elementsToRemove = mainContent.querySelectorAll('nav, footer, script, style, .nav, .footer');
+                elementsToRemove.forEach(el => el.remove());
+                
+                // Get text content
+                const content = mainContent.textContent
+                    .replace(/\s+/g, ' ')
+                    .trim();
+                
+                return {
+                    title: page.title,
+                    url: page.url,
+                    content: content
+                };
+            } catch (error) {
+                console.error(`Failed to index ${page.url}:`, error);
+                return {
+                    title: page.title,
+                    url: page.url,
+                    content: ''
+                };
+            }
+        });
+        
+        this.searchIndex = await Promise.all(indexPromises);
+        this.indexingComplete = true;
+    }
+
     search(query) {
         if (!query.trim()) {
             this.resultsContainer.innerHTML = '<div class="search-instructions">Type to search across all pages</div>';
             return;
         }
 
-        const results = this.pages.filter(page => {
-            const searchText = `${page.title} ${page.keywords}`.toLowerCase();
-            return searchText.includes(query.toLowerCase());
-        });
+        if (!this.indexingComplete) {
+            this.resultsContainer.innerHTML = '<div class="search-instructions">Building search index...</div>';
+            return;
+        }
+
+        const queryLower = query.toLowerCase();
+        const queryWords = queryLower.split(/\s+/).filter(w => w.length > 0);
+        
+        // Search through indexed content
+        const results = this.searchIndex
+            .map(page => {
+                const titleLower = page.title.toLowerCase();
+                const contentLower = page.content.toLowerCase();
+                
+                // Calculate relevance score
+                let score = 0;
+                let matches = [];
+                
+                // Title matches are weighted higher
+                if (titleLower.includes(queryLower)) {
+                    score += 100;
+                    matches.push({ type: 'title', text: page.title });
+                }
+                
+                // Check for query word matches in content
+                queryWords.forEach(word => {
+                    const regex = new RegExp(`\\b${word}`, 'gi');
+                    const wordMatches = page.content.match(regex);
+                    if (wordMatches) {
+                        score += wordMatches.length;
+                    }
+                });
+                
+                // Find excerpt containing query terms
+                let excerpt = '';
+                const excerptLength = 150;
+                
+                // Find first occurrence of any query word
+                let firstMatchIndex = -1;
+                for (const word of queryWords) {
+                    const index = contentLower.indexOf(word);
+                    if (index !== -1 && (firstMatchIndex === -1 || index < firstMatchIndex)) {
+                        firstMatchIndex = index;
+                    }
+                }
+                
+                if (firstMatchIndex !== -1) {
+                    // Extract context around the match
+                    const start = Math.max(0, firstMatchIndex - 50);
+                    const end = Math.min(page.content.length, firstMatchIndex + excerptLength);
+                    excerpt = page.content.slice(start, end);
+                    
+                    // Clean up excerpt
+                    if (start > 0) excerpt = '...' + excerpt;
+                    if (end < page.content.length) excerpt = excerpt + '...';
+                    
+                    // Highlight matching terms
+                    queryWords.forEach(word => {
+                        const regex = new RegExp(`(${word})`, 'gi');
+                        excerpt = excerpt.replace(regex, '<mark>$1</mark>');
+                    });
+                }
+                
+                return {
+                    ...page,
+                    score,
+                    excerpt,
+                    hasMatch: score > 0
+                };
+            })
+            .filter(result => result.hasMatch)
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 10); // Limit to top 10 results
 
         if (results.length === 0) {
             this.resultsContainer.innerHTML = '<div class="search-no-results">No results found</div>';
@@ -503,7 +620,8 @@ class SiteSearch {
         const resultsHTML = results.map(result => `
             <a href="${result.url}" class="search-result-item">
                 <div class="search-result-title">${result.title}</div>
-                <div class="search-result-page">${result.url}</div>
+                ${result.excerpt ? `<div class="search-result-excerpt">${result.excerpt}</div>` : ''}
+                <div class="search-result-url">${result.url}</div>
             </a>
         `).join('');
 

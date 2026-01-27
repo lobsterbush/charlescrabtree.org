@@ -2855,10 +2855,26 @@ blockquote::before {
     margin-bottom: 0.5rem;
 }
 
+.search-result-url {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    margin-top: 0.5rem;
+}
+
 .search-result-excerpt {
     font-size: 0.875rem;
     color: var(--text-secondary);
     line-height: 1.5;
+    margin-top: 0.5rem;
+}
+
+.search-result-excerpt mark {
+    background: rgba(45, 90, 61, 0.2);
+    color: var(--green);
+    padding: 0.125rem 0.25rem;
+    border-radius: 3px;
+    font-weight: 500;
 }
 
 .search-no-results {
