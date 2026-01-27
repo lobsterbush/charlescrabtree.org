@@ -87,27 +87,37 @@ def generate_html(entries):
     """Generate HTML for the collapsible section."""
     html_items = []
     
-    for entry in entries:
+    for i, entry in enumerate(entries, 1):
         parsed = parse_latex_entry(entry)
         if not parsed:
             continue
         
-        # Format: "Title" - Outlet (Date)
-        html = f'<li><a href="{parsed["url"]}" target="_blank">{parsed["title"]}</a> - <em>{parsed["outlet"]}</em> ({parsed["date"]})</li>'
+        # Format: numbered paragraph with link, outlet, and date
+        html = f'<p>{i}. <a href="{parsed["url"]}" target="_blank">{parsed["title"]}</a>. <em>{parsed["outlet"]}</em> ({parsed["date"]})</p>'
         html_items.append(html)
     
     if not html_items:
         return ""
     
-    items_html = '\n                    '.join(html_items)
+    items_html = '\n'.join(html_items)
+    count = len(html_items)
     
     collapsible_html = f"""
-                <details style="margin-top: 1.5rem;">
-                    <summary style="cursor: pointer; font-weight: 600; color: var(--text-primary); margin-bottom: 0.75rem;">Recent Public Scholarship</summary>
-                    <ul class="pub-list" style="margin-top: 0.75rem;">
-                    {items_html}
-                    </ul>
-                </details>"""
+
+<div class="year-section">
+    <div class="year-header">
+        <div class="year-header-content">
+            <h3 class="year-title">Recent Public Scholarship</h3>
+            <span class="year-count">({count} recent {'piece' if count == 1 else 'pieces'})</span>
+        </div>
+        <span class="year-toggle">▼</span>
+    </div>
+    <div class="year-content">
+        <div class="year-content-inner">
+{items_html}
+        </div>
+    </div>
+</div>"""
     
     return collapsible_html
 
@@ -125,9 +135,15 @@ def update_media_page(html_content):
     if not match:
         raise ValueError("Could not find insertion point in media.html")
     
-    # Remove any existing scholarship section first
+    # Remove any existing scholarship section first (both old details and new year-section formats)
     content = re.sub(
         r'\s*<details[^>]*>.*?<summary[^>]*>Recent Public Scholarship</summary>.*?</details>',
+        '',
+        content,
+        flags=re.DOTALL
+    )
+    content = re.sub(
+        r'\s*<div class="year-section">\s*<div class="year-header">.*?<h3 class="year-title">Recent Public Scholarship</h3>.*?</div>\s*</div>',
         '',
         content,
         flags=re.DOTALL
