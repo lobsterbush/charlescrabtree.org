@@ -144,6 +144,12 @@ a:focus:not(:focus-visible) {
     outline: none;
 }
 
+/* Ensure italic text inside links inherits link color */
+a em,
+a i {
+    color: inherit;
+}
+
 /* ========================================
    Navigation
    ======================================== */
