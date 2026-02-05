@@ -1,6 +1,14 @@
 {
-  "updated": "2026-02-04T06:36:12.724531",
+  "updated": "2026-02-05T06:42:39.258506",
   "articles": [
+    {
+      "title": "The problem with banning flags at international sporting events",
+      "url": "https://www.lowyinstitute.org/the-interpreter/problem-banning-flags-international-sporting-events",
+      "date": "2026",
+      "outlet": "Publication",
+      "excerpt": "Restricting national symbols targets the wrong actors and risks being counterproductive.",
+      "tags": []
+    },
     {
       "title": "Hong Kong’s New LegCo Faces Test Over Same-Sex Partnership Recognition",
       "url": "https://thediplomat.com/2026/01/hong-kongs-new-legco-faces-test-over-same-sex-partnership-recognition/",
@@ -151,14 +159,6 @@
       "date": "2020",
       "outlet": "Publication",
       "excerpt": "Any power transition produces policy casualties. In the United States, this might be particularly true as an incoming administration often differentiates itself from the incumbent by quickly announ...",
-      "tags": []
-    },
-    {
-      "title": "Japan's role could redefine Asia-Pacific relations under Biden and Suga",
-      "url": "https://thehill.com/opinion/international/527198-japans-role-could-redefine-asia-pacific-relations-under-biden-and-suga",
-      "date": "2020",
-      "outlet": "Publication",
-      "excerpt": "President-elect Joe Biden had a pleasant surprise for Japanese Prime Minister Yoshihide Suga during their first phone conversation after the U.S. presidential election. In what was expected to be a...",
       "tags": []
     }
   ]
