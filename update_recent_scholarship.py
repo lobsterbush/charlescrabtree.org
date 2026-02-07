@@ -59,9 +59,14 @@ def parse_latex_entry(entry):
     authors = re.sub(r'\$\^\{\*\}\$', '', authors)  # Remove asterisk
     authors = re.sub(r'\\ldots', '...', authors)
     
-    # Extract URL and title
-    href_pattern = r'\\href\{([^}]+)\}\{([^}]+)\}'
+    # Extract URL and title - handle both \href{url}{title} and malformed {url}{title}
+    href_pattern = r'\\?href\{([^}]+)\}\{([^}]+)\}'
     href_match = re.search(href_pattern, entry)
+    
+    # Also try pattern without href for malformed entries like ``{url}{title}''
+    if not href_match:
+        alt_pattern = r'``\{([^}]+)\}\{([^}]+)\}\'\'
+        href_match = re.search(alt_pattern, entry)
     
     if not href_match:
         return None
@@ -69,10 +74,16 @@ def parse_latex_entry(entry):
     url = href_match.group(1)
     title = href_match.group(2)
     
-    # Extract outlet
-    outlet_pattern = r'\\textit\{([^}]+)\}'
-    outlet_match = re.search(outlet_pattern, entry)
-    outlet = outlet_match.group(1) if outlet_match else "Unknown"
+    # Clean title - remove trailing period if present
+    title = title.rstrip('.')
+    
+    # Extract outlet - look for \textit{} after the title
+    # First, find all textit patterns and take the last one (usually the outlet)
+    outlet_matches = re.findall(r'\\textit\{([^}]+)\}', entry)
+    if outlet_matches:
+        outlet = outlet_matches[-1]  # Last textit is usually the outlet
+    else:
+        outlet = "Unknown"
     
     return {
         'authors': authors,

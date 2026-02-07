@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.crabtree.update-scholarship</string>
+    
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>/Users/f00421k/Documents/GitHub/personal-site/update_recent_scholarship.py</string>
+    </array>
+    
+    <key>WatchPaths</key>
+    <array>
+        <string>/Users/f00421k/Dropbox/cv/c_crabtree_cv.tex</string>
+    </array>
+    
+    <key>StandardOutPath</key>
+    <string>/Users/f00421k/Documents/GitHub/personal-site/logs/scholarship-update.log</string>
+    
+    <key>StandardErrorPath</key>
+    <string>/Users/f00421k/Documents/GitHub/personal-site/logs/scholarship-update-error.log</string>
+    
+    <key>RunAtLoad</key>
+    <false/>
+</dict>
+</plist>
