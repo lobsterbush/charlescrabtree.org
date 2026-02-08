@@ -65,7 +65,7 @@ def parse_latex_entry(entry):
     
     # Also try pattern without href for malformed entries like ``{url}{title}''
     if not href_match:
-        alt_pattern = r'``\{([^}]+)\}\{([^}]+)\}\'\'
+        alt_pattern = r"``\{([^}]+)\}\{([^}]+)\}''"
         href_match = re.search(alt_pattern, entry)
     
     if not href_match:
@@ -146,15 +146,17 @@ def update_media_page(html_content):
     if not match:
         raise ValueError("Could not find insertion point in media.html")
     
-    # Remove any existing scholarship section first (both old details and new year-section formats)
+    # Remove any existing scholarship section first
+    # Match the entire year-section div from opening to the closing </div> before <h2>Podcast
     content = re.sub(
-        r'\s*<details[^>]*>.*?<summary[^>]*>Recent Public Scholarship</summary>.*?</details>',
+        r'\n*<div class="year-section">.*?Recent Public Scholarship.*?</div>\s*</div>\s*</div>',
         '',
         content,
         flags=re.DOTALL
     )
+    # Also remove old details format if present
     content = re.sub(
-        r'\s*<div class="year-section">\s*<div class="year-header">.*?<h3 class="year-title">Recent Public Scholarship</h3>.*?</div>\s*</div>',
+        r'\s*<details[^>]*>.*?<summary[^>]*>Recent Public Scholarship</summary>.*?</details>',
         '',
         content,
         flags=re.DOTALL
