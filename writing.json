@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-07T06:27:56.464673",
+  "updated": "2026-02-08T06:36:01.219976",
   "articles": [
     {
       "title": "The problem with banning flags at international sporting events",
@@ -15,14 +15,6 @@
       "date": "2026",
       "outlet": "Publication",
       "excerpt": "At stake is not only the rights of sexual minorities, but also whether Hong Kong's court rulings have any teeth.",
-      "tags": []
-    },
-    {
-      "title": "女性政治家は「マスク」つけると支持ダウン、男性は… 九州大が実証",
-      "url": "https://www.asahi.com/articles/ASV1P2689V1PULLI002M.html",
-      "date": "2026",
-      "outlet": "Publication",
-      "excerpt": "女性政治家はマスクをつけると支持が下がるのに、男性政治家は変わらない――。九州大学大学院准教授の室賀貴穂さん（労働経済学）のチームが、日本の有権者を対象に初めて実証した。室賀さんは「マスク1枚でも女…",
       "tags": []
     },
     {
@@ -159,6 +151,14 @@
       "date": "2020",
       "outlet": "Publication",
       "excerpt": "Any power transition produces policy casualties. In the United States, this might be particularly true as an incoming administration often differentiates itself from the incumbent by quickly announ...",
+      "tags": []
+    },
+    {
+      "title": "Japan's role could redefine Asia-Pacific relations under Biden and Suga",
+      "url": "https://thehill.com/opinion/international/527198-japans-role-could-redefine-asia-pacific-relations-under-biden-and-suga",
+      "date": "2020",
+      "outlet": "Publication",
+      "excerpt": "President-elect Joe Biden had a pleasant surprise for Japanese Prime Minister Yoshihide Suga during their first phone conversation after the U.S. presidential election. In what was expected to be a...",
       "tags": []
     }
   ]
