@@ -1,6 +1,14 @@
 {
-  "updated": "2026-02-13T06:44:28.147248",
+  "updated": "2026-02-14T06:30:24.356797",
   "articles": [
+    {
+      "title": "China’s ‘Rat People’: When Education Can’t Deliver on Its Promises",
+      "url": "https://thediplomat.com/2026/02/chinas-rat-people-when-education-cant-deliver-on-its-promises/",
+      "date": "2026",
+      "outlet": "Publication",
+      "excerpt": "The number of Chinese who believe that “hard work is rewarded” has collapsed among those born in the 1980s and 1990s.",
+      "tags": []
+    },
     {
       "title": "The problem with banning flags at international sporting events",
       "url": "https://www.lowyinstitute.org/the-interpreter/problem-banning-flags-international-sporting-events",
@@ -151,14 +159,6 @@
       "date": "2020",
       "outlet": "Publication",
       "excerpt": "Any power transition produces policy casualties. In the United States, this might be particularly true as an incoming administration often differentiates itself from the incumbent by quickly announ...",
-      "tags": []
-    },
-    {
-      "title": "Japan's role could redefine Asia-Pacific relations under Biden and Suga",
-      "url": "https://thehill.com/opinion/international/527198-japans-role-could-redefine-asia-pacific-relations-under-biden-and-suga",
-      "date": "2020",
-      "outlet": "Publication",
-      "excerpt": "President-elect Joe Biden had a pleasant surprise for Japanese Prime Minister Yoshihide Suga during their first phone conversation after the U.S. presidential election. In what was expected to be a...",
       "tags": []
     }
   ]
