@@ -1451,7 +1451,7 @@ blockquote::before {
 
 .pub-list li:hover::before {
     transform: translateX(4px);
-    color: var(--accent-hover);
+    color: var(--green);
 }
 
 .pub-list li:last-child {
