@@ -3,6 +3,14 @@
 ## Overview
 Personal academic website for Charles Crabtree built with vanilla HTML, CSS, and JavaScript.
 
+## Recent Updates (February 2026)
+- **Publications page**: Added forthcoming PNAS Nexus article ("Can AI Help Reduce Prejudice?") to top of select publications
+- **Hover colors**: Fixed inconsistent hover colors on research/publications pages (all now use green)
+- **Public writing**: Added "China's 'Rat People'" entry (Feb 14, 2026) to media.html, now showing 6 recent pieces
+- **Home page bio**: Added editorial roles paragraph with links:
+  - Associate Editor at *Australian Journal of Political Science* (https://www.tandfonline.com/journals/cajp20)
+  - Secretary of Australian Society for Quantitative Political Science (https://www.asqps.org.au/)
+
 ## Key Files
 - **CV source**: `/Users/f00421k/Dropbox/cv/c_crabtree_cv.tex` (LaTeX)
 - **Media page**: `media.html` - displays public scholarship, podcast, media appearances, media coverage
