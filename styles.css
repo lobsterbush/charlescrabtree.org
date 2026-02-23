@@ -1801,19 +1801,20 @@ blockquote::before {
     margin-bottom: 1.25rem;
     border-radius: 8px;
     overflow: hidden;
+    border: 1px solid var(--border);
     box-shadow: 0 2px 12px var(--shadow);
     transition: all var(--transition-smooth);
 }
 
 .year-section:hover {
+    border-color: var(--green-light);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
 .year-header {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
-    border: 1px solid var(--border);
     padding: 1.125rem 1.5rem;
     cursor: pointer;
     display: flex;
@@ -1824,7 +1825,6 @@ blockquote::before {
 }
 
 .year-header:hover {
-    border-color: var(--green-light);
     background: rgba(45, 90, 61, 0.05);
 }
 
@@ -1849,10 +1849,25 @@ blockquote::before {
 }
 
 .year-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: rgba(0, 102, 204, 0.08);
+    border: 1px solid rgba(0, 102, 204, 0.2);
+    border-radius: 6px;
     font-family: var(--font-mono);
-    font-size: 1.25rem;
+    font-size: 0.75rem;
     color: var(--accent);
-    transition: transform var(--transition-smooth);
+    transition: all var(--transition-smooth);
+    flex-shrink: 0;
+}
+
+.year-header:hover .year-toggle {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
 }
 
 .year-section.expanded .year-toggle {
@@ -1871,8 +1886,7 @@ blockquote::before {
 
 .year-content-inner {
     padding: 1.75rem;
-    border: 1px solid var(--border);
-    border-top: none;
+    border-top: 1px solid var(--border);
     background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(8px);
 }
@@ -3731,12 +3745,16 @@ body.dark-mode .footer {
 /* Dark mode for advanced features */
 body.dark-mode .year-header {
     background: rgba(28, 33, 40, 0.8);
-    border-color: var(--border);
 }
 
 body.dark-mode .year-content-inner {
     background: rgba(22, 27, 34, 0.6);
-    border-color: var(--border);
+    border-top-color: var(--border);
+}
+
+body.dark-mode .year-toggle {
+    background: rgba(0, 102, 204, 0.15);
+    border-color: rgba(0, 102, 204, 0.3);
 }
 
 body.dark-mode .year-content-inner p:hover {
