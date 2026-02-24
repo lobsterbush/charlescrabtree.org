@@ -1,0 +1,152 @@
+{
+  "bio": {
+    "name": "Charles Crabtree",
+    "title": "Senior Lecturer (Associate Professor)",
+    "institution": "Monash University, School of Social Sciences",
+    "secondary": "K-CLUB Professor, University College, Korea University",
+    "email": "charles.crabtree@monash.edu",
+    "orcid": "0000-0001-5144-8671",
+    "scholar": "https://scholar.google.com/citations?user=FJHX9LAAAAAJ&hl=en",
+    "cv": "https://www.dropbox.com/s/k3hee0zcbczj142/c_crabtree_cv.pdf?dl=0",
+    "summary": "Political scientist studying intergroup relations and conflict, focusing on how social boundaries like race, ethnicity, class, disability, and nationality are constructed and contested. Uses AI and computational methods to measure and reduce discrimination.",
+    "background": "Grew up in poverty in a blended biethnic family. Lived in trailer parks and public housing. Worked across politics, research, journalism, education, design, and data science before academia. PhD from University of Michigan. Former Assistant Professor at Dartmouth, Visiting Assistant Professor at Stanford APARC.",
+    "interests_outside_work": "Family, travel, yoga, photography, cooking, basketball. Roots for North Melbourne in AFL.",
+    "editorial_roles": "Associate Editor at Australian Journal of Political Science. Secretary of the Australian Society for Quantitative Political Science. Editorial boards: Asian Journal of Comparative Politics, Japanese Journal of Political Science."
+  },
+  "research_areas": [
+    {
+      "area": "Discrimination and Bias",
+      "description": "Documenting and explaining discrimination against groups defined by disability, ethnicity, gender, nativity, race, and religion. Current focus on class-based discrimination.",
+      "page": "research.html"
+    },
+    {
+      "area": "Class Discrimination and Fundamental Needs",
+      "description": "Understanding attitudes of individuals facing food and housing needs, and what the public thinks of them. Housed in the Fundamental Needs Lab at needslab.org.",
+      "page": "research.html"
+    },
+    {
+      "area": "AI and Computational Methods",
+      "description": "Using computational text analysis, machine learning, and large language models to study social and political phenomena at scale. Exploring whether AI can reduce prejudice.",
+      "page": "research.html"
+    },
+    {
+      "area": "Japan and East Asia",
+      "description": "Research on discrimination, gender politics, and political behavior in Japan and the broader Asia-Pacific.",
+      "page": "research.html"
+    },
+    {
+      "area": "Human Rights",
+      "description": "Research on public support for human rights, naming and shaming, and rights in authoritarian contexts.",
+      "page": "research.html"
+    },
+    {
+      "area": "Measurement and Methods",
+      "description": "Developing and refining methodological tools for measuring discriminatory behavior, including correspondence audits, validated name lists, and survey design.",
+      "page": "research.html"
+    }
+  ],
+  "key_publications": [
+    {
+      "title": "Can AI Help Reduce Prejudice?",
+      "journal": "PNAS Nexus",
+      "year": "Forthcoming",
+      "topic": "AI-powered personalized persuasion to reduce prejudice"
+    },
+    {
+      "title": "Geo-political Rivalry and Anti-Immigrant Sentiment",
+      "journal": "American Political Science Review",
+      "year": 2025,
+      "topic": "Conjoint experiment in 22 countries on immigration attitudes"
+    },
+    {
+      "title": "Are Americans Less Likely to Reply to Emails from Black People?",
+      "journal": "PNAS",
+      "year": 2021,
+      "topic": "Large-scale field experiment on racial discrimination in email responses"
+    },
+    {
+      "title": "Patient Traits Shape Health-Care Stakeholders' Choices",
+      "journal": "Nature Human Behaviour",
+      "year": 2022,
+      "topic": "How patient characteristics affect life-saving care allocation"
+    },
+    {
+      "title": "Ideology Justifies Morality",
+      "journal": "American Journal of Political Science",
+      "year": 2019,
+      "topic": "Political beliefs predict moral foundations"
+    },
+    {
+      "title": "Testing the Causal Impact of Social Media Reduction Around the Globe",
+      "journal": "Nature",
+      "year": "Forthcoming",
+      "topic": "Global experiment on reducing social media use"
+    },
+    {
+      "title": "Evade and Deceive? Citizen Responses to Surveillance",
+      "journal": "Journal of Politics",
+      "year": 2021,
+      "topic": "How citizens respond to surveillance in authoritarian contexts"
+    },
+    {
+      "title": "When Do Private Actors Engage in Censorship?",
+      "journal": "British Journal of Political Science",
+      "year": 2022,
+      "topic": "Correspondence experiment with Russian private media firms"
+    },
+    {
+      "title": "Validated Names for Experimental Studies on Race and Ethnicity",
+      "journal": "Nature Scientific Data",
+      "year": 2023,
+      "topic": "Methodological tool for audit/correspondence experiments"
+    }
+  ],
+  "teaching": {
+    "current": [
+      "Political Theory in a Changing World (Monash University)",
+      "AI-Enhanced Research Design (Essex Summer School)",
+      "AI and Experimental Methods (IPSA-NUS Summer School)"
+    ],
+    "past_highlights": [
+      "Quantitative Political Analysis (Dartmouth) — received 5/5 ratings",
+      "Experiments in Politics (Dartmouth) — students published papers",
+      "Baltic LEAP foreign study program — 'life-changing' student reviews",
+      "Honors Research in Government (Dartmouth)"
+    ],
+    "philosophy": "Views teaching as ongoing conversations in and outside the classroom. Teaches statistical reasoning, research design, democratization, and discrimination. Strives to be approachable, encouraging, and emotionally supportive."
+  },
+  "collaboration": {
+    "coauthors": "160+ collaborators from institutions across six continents",
+    "workshops_founded": ["APOSS (Asian Politics Online Seminar Series, 104 sessions)", "JPOSS (Japanese Politics Online Seminar Series, 40 sessions)", "VWAR (Virtual Workshop on Authoritarian Regimes, 43 sessions)"],
+    "conferences_organized": "4 conferences, 7 mini-conferences, nearly 200 seminars and workshops",
+    "affiliations": ["Harvard Davis Center for Russian and Eurasian Studies", "Stanford Japan Barometer", "Harvard Program on U.S.-Japan Relations", "University of Michigan Center for Japanese Studies", "Varieties of Democracy East Asia", "Kobe University", "Kyushu University", "Dankook University"],
+    "erdos_number": 5
+  },
+  "students": {
+    "publications_with_undergrads": 7,
+    "publications_with_grad_students": 7,
+    "theses_advised": 10,
+    "research_assistants": 17,
+    "accepts_phd_students": true,
+    "phd_areas": "Discrimination, intergroup relations, experimental methods, AI-enhanced research design",
+    "letter_form": "https://forms.gle/ygHa866pns5DNj149",
+    "scheduling": "https://calendly.com/crabinatree/15-minute-meeting"
+  },
+  "media": {
+    "outlets_featured_in": "NPR All Things Considered, CBS News, The Atlantic, The Economist, The Huffington Post, Yahoo! News, The Asahi Shimbun, Australian Financial Review, ABC Nightlife, Latvijas Radio",
+    "public_writing_outlets": "The Atlantic, The Washington Post, Foreign Policy, The Hill, The Diplomat, The Asahi Shimbun, The Japan Times, East Asia Forum, South China Morning Post, The Interpreter, Times Higher Education, Tokyo Review",
+    "recent_topics": "Japan politics under PM Takaichi, AI disinformation, China's 'Rat People', child safety in Japan, Hong Kong politics, flag banning at sporting events"
+  },
+  "pages": {
+    "index.html": "Homepage with bio, positions, research summary, contact links, and places-lived map",
+    "research.html": "Working papers, manuscripts under review, works in progress organized by research area",
+    "publications.html": "72+ peer-reviewed publications organized by year, with searchable interface",
+    "teaching.html": "Teaching history, course evaluations, Baltic LEAP program",
+    "media.html": "Public writing, interviews, media coverage",
+    "collaboration.html": "Virtual workshops (APOSS, JPOSS, VWAR), institutional affiliations, coauthor network",
+    "students.html": "Working with students, thesis advising, PhD supervision, letter requests, scheduling",
+    "colophon.html": "Site design and technical details",
+    "coauthors.html": "Full list of 160+ coauthors with interactive visualization",
+    "universities.html": "Map of 100+ universities visited worldwide"
+  }
+}
