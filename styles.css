@@ -351,11 +351,11 @@ a i {
 
 /* Content panel - frosted glass on graph paper */
 main > .container {
-    background: rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(224, 224, 224, 0.4);
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(224, 224, 224, 0.2);
+    box-shadow: none;
 }
 
 main.page > .container {
@@ -368,12 +368,12 @@ main.hero > .container {
 }
 
 .section-about {
-    background: rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(224, 224, 224, 0.4);
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(224, 224, 224, 0.2);
     border-top: none;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+    box-shadow: none;
     padding-left: 3rem;
     padding-right: 3rem;
     margin-top: 0;
@@ -3477,8 +3477,8 @@ body.dark-mode .footer {
 
 body.dark-mode main > .container,
 body.dark-mode .section-about {
-    background: rgba(28, 33, 40, 0.9);
-    border-color: var(--border);
+    background: rgba(28, 33, 40, 0.4);
+    border-color: rgba(48, 54, 61, 0.3);
 }
 
 body.dark-mode .year-header {
