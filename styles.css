@@ -361,15 +361,18 @@ main.page > .container {
 }
 
 main.hero > .container {
-    padding: 3rem;
+    padding: 3rem 3rem 1.5rem;
+    border-bottom: none;
 }
 
 .section-about {
     background: white;
     border: 1px solid rgba(224, 224, 224, 0.3);
+    border-top: none;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
     padding-left: 3rem;
     padding-right: 3rem;
+    margin-top: 0;
 }
 
 @media (max-width: 768px) {
@@ -385,7 +388,7 @@ main.hero > .container {
         padding: 1.75rem 1.25rem;
     }
     main.hero > .container {
-        padding: 2rem 1.25rem;
+        padding: 2rem 1.25rem 1rem;
     }
     .page-title {
         font-size: 2rem;
@@ -853,7 +856,7 @@ em {
 }
 
 .section-about {
-    padding-top: 0rem;
+    padding-top: 2rem;
     padding-bottom: 4rem;
 }
 
