@@ -58,7 +58,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Subtle graph paper background with animated gradient */
+/* Animated mesh gradient background */
 body::before {
     content: '';
     position: fixed;
@@ -66,23 +66,47 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
-        linear-gradient(rgba(0, 102, 204, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 102, 204, 0.02) 1px, transparent 1px),
-        linear-gradient(rgba(0, 102, 204, 0.01) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 102, 204, 0.01) 1px, transparent 1px);
-    background-size: 
-        100px 100px,
-        100px 100px,
-        20px 20px,
-        20px 20px;
-    background-position: 
-        -1px -1px,
-        -1px -1px,
-        -1px -1px,
-        -1px -1px;
+    background:
+        radial-gradient(ellipse at 10% 20%, rgba(74, 155, 103, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 90% 10%, rgba(0, 102, 204, 0.10) 0%, transparent 45%),
+        radial-gradient(ellipse at 60% 80%, rgba(74, 155, 103, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 30% 60%, rgba(0, 102, 204, 0.06) 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 50%, rgba(103, 176, 132, 0.07) 0%, transparent 50%),
+        linear-gradient(135deg, #fafafa 0%, #f0f4f8 30%, #f5faf7 60%, #f0f4f8 100%);
+    background-size: 200% 200%;
+    animation: meshGradient 25s ease infinite;
     pointer-events: none;
     z-index: 0;
+}
+
+/* Secondary floating gradient orbs */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle 600px at 20% 80%, rgba(0, 102, 204, 0.05) 0%, transparent 70%),
+        radial-gradient(circle 500px at 75% 30%, rgba(74, 155, 103, 0.06) 0%, transparent 70%);
+    background-size: 150% 150%;
+    animation: meshGradient2 30s ease infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes meshGradient {
+    0%, 100% { background-position: 0% 0%; }
+    25% { background-position: 50% 25%; }
+    50% { background-position: 100% 50%; }
+    75% { background-position: 25% 75%; }
+}
+
+@keyframes meshGradient2 {
+    0%, 100% { background-position: 100% 0%; }
+    33% { background-position: 0% 50%; }
+    66% { background-position: 50% 100%; }
 }
 
 body > * {
@@ -136,10 +160,11 @@ a i {
     left: 0;
     right: 0;
     height: var(--nav-height);
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 1px 3px var(--shadow);
+    background: rgba(255, 255, 255, 0.80);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
     z-index: 1000;
     animation: slideDown 0.5s ease;
 }
@@ -326,13 +351,15 @@ a i {
     min-height: 100vh;
 }
 
-/* Content panel - frosted glass on graph paper */
+/* Content panel - frosted glass on gradient */
 main > .container {
-    background: rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(224, 224, 224, 0.3);
-    box-shadow: none;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
 }
 
 main.page > .container {
@@ -345,12 +372,14 @@ main.hero > .container {
 }
 
 .section-about {
-    background: rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(224, 224, 224, 0.3);
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-top: none;
-    box-shadow: none;
+    box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
     padding-left: 3rem;
     padding-right: 3rem;
     margin-top: 0;
@@ -1517,9 +1546,11 @@ blockquote::before {
    ======================================== */
 .footer {
     padding: 3rem 0 2rem;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
     margin-top: 3rem;
-    background: var(--bg-secondary);
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .footer-content {
@@ -3264,11 +3295,23 @@ body.dark-mode {
 }
 
 body.dark-mode::before {
-    background-image: 
-        linear-gradient(rgba(0, 102, 204, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 102, 204, 0.04) 1px, transparent 1px),
-        linear-gradient(rgba(0, 102, 204, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 102, 204, 0.02) 1px, transparent 1px);
+    background:
+        radial-gradient(ellipse at 10% 20%, rgba(74, 155, 103, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 90% 10%, rgba(0, 102, 204, 0.07) 0%, transparent 45%),
+        radial-gradient(ellipse at 60% 80%, rgba(74, 155, 103, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 30% 60%, rgba(0, 102, 204, 0.04) 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 50%, rgba(103, 176, 132, 0.05) 0%, transparent 50%),
+        linear-gradient(135deg, #0f1419 0%, #121a22 30%, #111d1a 60%, #0f1419 100%);
+    background-size: 200% 200%;
+    animation: meshGradient 25s ease infinite;
+}
+
+body.dark-mode::after {
+    background:
+        radial-gradient(circle 600px at 20% 80%, rgba(0, 102, 204, 0.04) 0%, transparent 70%),
+        radial-gradient(circle 500px at 75% 30%, rgba(74, 155, 103, 0.04) 0%, transparent 70%);
+    background-size: 150% 150%;
+    animation: meshGradient2 30s ease infinite;
 }
 
 /* Dark mode specific component fixes */
@@ -3294,8 +3337,10 @@ body.dark-mode blockquote {
 }
 
 body.dark-mode .nav {
-    background: rgba(15, 20, 25, 0.95);
-    border-bottom-color: var(--border);
+    background: rgba(15, 20, 25, 0.80);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border-bottom-color: rgba(48, 54, 61, 0.4);
 }
 
 body.dark-mode .modal-content {
@@ -3336,14 +3381,21 @@ body.dark-mode .hero-image-photo {
 }
 
 body.dark-mode .footer {
-    background: var(--bg-card);
-    border-top-color: var(--border);
+    background: rgba(22, 27, 34, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top-color: rgba(48, 54, 61, 0.4);
 }
 
 body.dark-mode main > .container,
 body.dark-mode .section-about {
-    background: rgba(28, 33, 40, 0.88);
-    border-color: rgba(48, 54, 61, 0.4);
+    background: rgba(22, 27, 34, 0.80);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border-color: rgba(48, 54, 61, 0.3);
+    box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
 }
 
 body.dark-mode .year-header {
