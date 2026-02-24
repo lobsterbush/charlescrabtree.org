@@ -651,7 +651,8 @@ class Breadcrumbs {
             'media.html',
             'collaboration.html',
             'students.html',
-            'universities.html'
+            'universities.html',
+            'colophon.html'
         ];
         
         if (path === '/' || noBreadcrumbs.some(page => path.endsWith(page))) {
