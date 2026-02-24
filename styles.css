@@ -29,7 +29,7 @@
     --font-sans: 'Space Grotesk', system-ui, sans-serif;
     
     --nav-height: 56px;
-    --max-width: 960px;
+    --max-width: 1100px;
     
     --transition-fast: 0.15s ease;
     --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -349,10 +349,12 @@ a i {
     min-height: 100vh;
 }
 
-/* Content panel - white sheet on graph paper */
+/* Content panel - frosted glass on graph paper */
 main > .container {
-    background: white;
-    border: 1px solid rgba(224, 224, 224, 0.3);
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(224, 224, 224, 0.4);
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
 }
 
@@ -366,8 +368,10 @@ main.hero > .container {
 }
 
 .section-about {
-    background: white;
-    border: 1px solid rgba(224, 224, 224, 0.3);
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(224, 224, 224, 0.4);
     border-top: none;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
     padding-left: 3rem;
@@ -502,8 +506,8 @@ em {
    ======================================== */
 .hero {
     padding-top: calc(var(--nav-height) + 4rem);
-    padding-bottom: 4rem;
-    min-height: 100vh;
+    padding-bottom: 0;
+    min-height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -3473,7 +3477,7 @@ body.dark-mode .footer {
 
 body.dark-mode main > .container,
 body.dark-mode .section-about {
-    background: var(--bg-card);
+    background: rgba(28, 33, 40, 0.9);
     border-color: var(--border);
 }
 
