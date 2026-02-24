@@ -10,7 +10,7 @@
     
     --text-primary: #1a1a1a;
     --text-secondary: #4a4a4a;
-    --text-muted: #6a6a6a;
+    --text-muted: #5c5c5c;
     
     --accent: #0066cc;
     --accent-hover: #0052a3;
@@ -378,8 +378,21 @@ main.hero > .container {
         border-left: none;
         border-right: none;
         box-shadow: none;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+    main.page > .container {
+        padding: 1.75rem 1.25rem;
+    }
+    main.hero > .container {
+        padding: 2rem 1.25rem;
+    }
+    .page-title {
+        font-size: 2rem;
+        margin-bottom: 1.75rem;
+    }
+    h2 {
+        font-size: 1.4rem;
     }
 }
 
@@ -635,10 +648,8 @@ em {
     display: flex;
     flex-direction: column;
     gap: 0.35rem;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(224, 224, 224, 0.3);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
 }
 
 .position-org {
@@ -1547,10 +1558,8 @@ blockquote::before {
 }
 
 .contact-link {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(224, 224, 224, 0.3);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
     padding: 1.25rem 1.5rem;
     display: flex;
     flex-direction: column;
@@ -1577,12 +1586,9 @@ blockquote::before {
 }
 
 .contact-link:hover {
-    border-color: rgba(0, 102, 204, 0.3);
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 
-        0 6px 20px rgba(0, 0, 0, 0.08),
-        0 2px 8px rgba(0, 102, 204, 0.06),
-        inset 0 1px 0 0 rgba(255, 255, 255, 1);
+    border-color: var(--accent);
+    background: var(--bg-card);
+    box-shadow: 0 4px 12px var(--shadow);
 }
 
 .contact-link:hover::after {
@@ -1635,8 +1641,7 @@ blockquote::before {
     padding: 3rem 0 2rem;
     border-top: 1px solid var(--border);
     margin-top: 5rem;
-    background: rgba(250, 250, 250, 0.6);
-    backdrop-filter: blur(10px);
+    background: var(--bg-secondary);
 }
 
 .footer-content {
@@ -1791,8 +1796,7 @@ blockquote::before {
 }
 
 .year-header {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
+    background: var(--bg-secondary);
     padding: 1.125rem 1.5rem;
     cursor: pointer;
     display: flex;
@@ -1865,8 +1869,19 @@ blockquote::before {
 .year-content-inner {
     padding: 1.75rem;
     border-top: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(8px);
+    background: var(--bg-card);
+}
+
+@media (max-width: 768px) {
+    .year-header {
+        padding: 1rem 1.25rem;
+    }
+    .year-content-inner {
+        padding: 1.25rem;
+    }
+    .year-title {
+        font-size: 1rem;
+    }
 }
 
 .year-content-inner p {
@@ -3449,6 +3464,21 @@ body.dark-mode .hero-image-photo {
 }
 
 body.dark-mode .footer {
+    background: var(--bg-card);
+    border-top-color: var(--border);
+}
+
+body.dark-mode main > .container,
+body.dark-mode .section-about {
+    background: var(--bg-card);
+    border-color: var(--border);
+}
+
+body.dark-mode .year-header {
+    background: var(--bg-secondary);
+}
+
+body.dark-mode .year-content-inner {
     background: var(--bg-card);
     border-top-color: var(--border);
 }
