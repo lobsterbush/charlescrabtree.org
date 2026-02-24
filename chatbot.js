@@ -1,16 +1,18 @@
 /**
  * Site chatbot for charlescrabtree.org
- * Phase 1: Client-side intent classification + TF-IDF publication search + rich HTML responses
+ * LLM-powered via Cloudflare Worker with local TF-IDF fallback.
  */
+
+const WORKER_URL = 'https://crabtree-chatbot.YOUR_SUBDOMAIN.workers.dev';
+
 class SiteChatbot {
     constructor() {
         this.isOpen = false;
-        this.messages = [];
+        this.conversationHistory = []; // { role, content } for LLM context
         this.knowledge = null;
         this.publications = [];
         this.teaching = null;
-        this.lastIntent = null;
-        this.lastResults = [];
+        this.llmAvailable = true; // assume available, flip on first failure
         this.init();
     }
 
@@ -26,15 +28,13 @@ class SiteChatbot {
         this.addWelcomeMessage();
     }
 
-    // ── Data Loading ─────────────────────────────────────────
+    // ── Data Loading (for local fallback) ─────────────────────
 
     async loadKnowledge() {
         try {
             const r = await fetch('site-knowledge.json');
             this.knowledge = await r.json();
-        } catch (e) {
-            console.warn('Knowledge base not loaded:', e);
-        }
+        } catch { this.knowledge = null; }
     }
 
     async loadPublications() {
@@ -42,22 +42,17 @@ class SiteChatbot {
             const r = await fetch('publications.json');
             const d = await r.json();
             this.publications = d.publications || [];
-        } catch (e) {
-            console.warn('Publications not loaded:', e);
-            this.publications = [];
-        }
+        } catch { this.publications = []; }
     }
 
     async loadTeaching() {
         try {
             const r = await fetch('teaching.json');
             this.teaching = await r.json();
-        } catch (e) {
-            this.teaching = null;
-        }
+        } catch { this.teaching = null; }
     }
 
-    // ── TF-IDF Index ─────────────────────────────────────────
+    // ── TF-IDF Fallback Engine ────────────────────────────────
 
     buildIDF() {
         this.docFreq = {};
@@ -78,19 +73,7 @@ class SiteChatbot {
         return text.toLowerCase()
             .replace(/[^a-z0-9\s-]/g, '')
             .split(/\s+/)
-            .filter(w => w.length >= 2 && !this.stopWords.has(w));
-    }
-
-    get stopWords() {
-        return new Set([
-            'the','and','for','are','but','not','you','all','can','her','was','one','our',
-            'out','has','had','its','with','this','that','from','they','been','have','many',
-            'some','them','than','each','make','like','into','over','such','after','also',
-            'how','who','what','when','where','which','about','their','would','there','could',
-            'other','more','very','most','does','did','paper','papers','article','articles',
-            'study','studies','show','shows','find','finds','evidence','using','based','new',
-            'charles','crabtree'
-        ]);
+            .filter(w => w.length >= 2 && !STOP_WORDS.has(w));
     }
 
     scorePub(pub, queryTokens) {
@@ -111,228 +94,126 @@ class SiteChatbot {
     searchPublications(query, limit = 5) {
         const tokens = this.tokenize(query);
         if (tokens.length === 0) return [];
-        const scored = this.publications
+        return this.publications
             .map(pub => ({ pub, score: this.scorePub(pub, tokens) }))
             .filter(s => s.score > 0)
-            .sort((a, b) => b.score - a.score);
-        return scored.slice(0, limit);
+            .sort((a, b) => b.score - a.score)
+            .slice(0, limit);
     }
 
-    // ── Intent Classification ────────────────────────────────
-
-    classifyIntent(query) {
+    generateLocalResponse(query) {
         const q = query.toLowerCase();
-
-        if (/^(hi|hello|hey|g'day|greetings|howdy)\b/.test(q))
-            return 'greeting';
-        if (/tell me more|more about that|expand|elaborate|go on|continue/.test(q))
-            return 'followup';
-        if (/\b(contact|email|reach|get in touch)\b/.test(q))
-            return 'contact';
-        if (/\b(cv|resume|curriculum vitae)\b/.test(q))
-            return 'cv';
-        if (/\b(teach|course|class|lecture|baltic|leap|evaluat)\b/.test(q))
-            return 'teaching';
-        if (/\b(student|advise|thesis|phd|letter|recommend|supervis)\b/.test(q))
-            return 'students';
-        if (/\b(collaborat|coauthor|co-author|workshop|aposs|jposs|vwar|work with)\b/.test(q))
-            return 'collaboration';
-        if (/\b(media|interview|news|press|public writ|oped|op-ed|journalist|podcast)\b/.test(q))
-            return 'media';
-        if (/\b(paper|publication|journal|publish|discrimination|race|gender|immigrant|class|poverty|disability|experiment|japan|asia|human rights|censorship|surveillance|voting|election|authoritarian|ai\b|machine learn|social media)\b/.test(q))
-            return 'publications';
-        if (/\b(research|interests?|work on|focus|area)\b/.test(q))
-            return 'research';
-        if (/\b(who|about|background|bio|where|position|role|department)\b/.test(q))
-            return 'bio';
-        if (/\b(page|navigate|find|section|site|website)\b/.test(q))
-            return 'navigation';
-
-        return 'publications';
-    }
-
-    // ── Response Generation ──────────────────────────────────
-
-    generateResponse(query) {
-        const intent = this.classifyIntent(query);
-        this.lastIntent = intent;
         const k = this.knowledge;
 
-        switch (intent) {
-            case 'greeting':
-                return this.rich(`Hi! I can help you explore Charles's research, publications, teaching, and more. What are you curious about?`);
-
-            case 'followup':
-                return this.handleFollowup();
-
-            case 'contact':
-                return this.rich(`
-                    <strong>Contact Charles:</strong><br>
-                    📧 <a href="mailto:${k?.bio?.email}">${k?.bio?.email}</a><br>
-                    🔬 <a href="${k?.bio?.scholar}" target="_blank">Google Scholar</a><br>
-                    🆔 <a href="https://orcid.org/${k?.bio?.orcid}" target="_blank">ORCID</a><br>
-                    📄 <a href="${k?.bio?.cv}" target="_blank">Download CV</a>
-                `);
-
-            case 'cv':
-                return this.rich(`You can <a href="${k?.bio?.cv}" target="_blank">download Charles's CV here</a>.`);
-
-            case 'bio':
-                return this.rich(`
-                    <strong>${k?.bio?.name}</strong> — ${k?.bio?.title} at ${k?.bio?.institution}, and ${k?.bio?.secondary}.<br><br>
-                    ${k?.bio?.summary}<br><br>
-                    ${k?.bio?.editorial_roles}<br><br>
-                    <a href="index.html">Read the full bio →</a>
-                `);
-
-            case 'research': return this.handleResearch();
-            case 'publications': return this.handlePublications(query);
-            case 'teaching': return this.handleTeaching(query);
-            case 'students': return this.handleStudents();
-            case 'collaboration': return this.handleCollaboration();
-            case 'media': return this.handleMedia();
-            case 'navigation': return this.handleNavigation(query);
-            default: return this.handlePublications(query);
+        if (/^(hi|hello|hey|g'day|greetings|howdy)\b/.test(q))
+            return `Hi! I can help you explore Charles's research, publications, teaching, and more. What are you curious about?`;
+        if (/\b(contact|email|reach|get in touch)\b/.test(q))
+            return `📧 Email: ${k?.bio?.email}\n🔬 [Google Scholar](${k?.bio?.scholar})\n📄 [Download CV](${k?.bio?.cv})`;
+        if (/\b(cv|resume|curriculum vitae)\b/.test(q))
+            return `You can [download Charles's CV here](${k?.bio?.cv}).`;
+        if (/\b(who|about|background|bio)\b/.test(q))
+            return `**${k?.bio?.name}** — ${k?.bio?.title} at ${k?.bio?.institution}, and ${k?.bio?.secondary}.\n\n${k?.bio?.summary}\n\n[Read the full bio →](index.html)`;
+        if (/\b(research|interests?|work on|focus|area)\b/.test(q)) {
+            const areas = (k?.research_areas || []).map(a => `**${a.area}**: ${a.description}`).join('\n\n');
+            return `Charles's research spans several areas:\n\n${areas}\n\n[View working papers →](research.html)`;
         }
-    }
+        if (/\b(teach|course|class)\b/.test(q)) {
+            const current = (k?.teaching?.current || []).map(c => `• ${c}`).join('\n');
+            return `**Current teaching:**\n${current}\n\n[Full teaching page →](teaching.html)`;
+        }
+        if (/\b(student|advise|thesis|phd|supervis)\b/.test(q))
+            return `Charles actively works with students — ${k?.students?.publications_with_undergrads} papers with undergrads, ${k?.students?.theses_advised} theses advised.\n\n[Students page →](students.html)`;
+        if (/\b(collaborat|coauthor|workshop)\b/.test(q))
+            return `${k?.collaboration?.coauthors}. Workshops: APOSS, JPOSS, VWAR.\n\n[Collaboration page →](collaboration.html)`;
+        if (/\b(media|interview|press|podcast)\b/.test(q))
+            return `Charles writes for public audiences and provides expert commentary.\n\n[Media page →](media.html)`;
 
-    handleResearch() {
-        const areas = this.knowledge?.research_areas || [];
-        const list = areas.map(a => `<strong>${a.area}</strong>: ${a.description}`).join('<br><br>');
-        return this.rich(`
-            Charles's research spans several areas:<br><br>
-            ${list}<br><br>
-            Ask about specific topics for publications. <a href="research.html">View working papers →</a>
-        `);
-    }
-
-    handlePublications(query) {
+        // Default: try publication search
         const results = this.searchPublications(query);
-        if (results.length === 0) {
-            return this.rich(`
-                I couldn't find publications matching that. Try topics like <em>discrimination</em>, <em>Japan</em>, <em>race</em>, <em>gender</em>, <em>AI</em>, <em>human rights</em>, or <em>immigration</em>.<br><br>
-                <a href="publications.html">Browse all ${this.publications.length} publications →</a>
-            `);
+        if (results.length > 0) {
+            const items = results.map((r, i) =>
+                `${i + 1}. **"${r.pub.title}"** — *${r.pub.journal}* (${r.pub.year})`
+            ).join('\n\n');
+            return `Found ${results.length} relevant publication${results.length > 1 ? 's' : ''}:\n\n${items}\n\n[Browse all publications →](publications.html)`;
         }
-        this.lastResults = results;
-        const items = results.map((r, i) =>
-            `${i + 1}. <strong>"${r.pub.title}"</strong><br><em>${r.pub.journal}</em> (${r.pub.year})`
-        ).join('<br><br>');
-        const more = this.publications.length > results.length
-            ? `<br><br><a href="publications.html">See all ${this.publications.length} publications →</a>`
-            : '';
-        return this.rich(`Found ${results.length} relevant publication${results.length > 1 ? 's' : ''}:<br><br>${items}${more}`);
+
+        return `I'm not sure about that. You can explore [research](research.html), [publications](publications.html), [teaching](teaching.html), or [contact Charles directly](mailto:${k?.bio?.email}).`;
     }
 
-    handleTeaching(query) {
-        const q = query.toLowerCase();
-        const t = this.teaching;
-        const k = this.knowledge?.teaching;
+    // ── Markdown → HTML ───────────────────────────────────────
 
-        if (/baltic|leap|foreign/.test(q) && t?.programs?.baltic_leap) {
-            const p = t.programs.baltic_leap;
-            return this.rich(`
-                <strong>${p.name}</strong><br>
-                ${p.description}<br><br>
-                Student feedback: <em>"${p.student_feedback[0]}"</em><br><br>
-                <a href="teaching.html">Learn more →</a>
-            `);
-        }
+    renderMarkdown(text) {
+        return text
+            // Bold
+            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+            // Italic
+            .replace(/\*(.+?)\*/g, '<em>$1</em>')
+            // Links
+            .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
+            // Line breaks (double newline → paragraph break, single → <br>)
+            .replace(/\n\n/g, '<br><br>')
+            .replace(/\n/g, '<br>');
+    }
 
-        if (t?.courses) {
-            const tokens = this.tokenize(q);
-            const match = t.courses.find(c => {
-                const text = `${c.title} ${c.description} ${c.keywords.join(' ')}`.toLowerCase();
-                return tokens.some(tok => text.includes(tok));
+    // ── LLM Streaming ─────────────────────────────────────────
+
+    async streamFromLLM(query, messageEl) {
+        this.conversationHistory.push({ role: 'user', content: query });
+
+        try {
+            const response = await fetch(WORKER_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ messages: this.conversationHistory }),
             });
-            if (match) {
-                const evals = match.evaluations
-                    ? Object.entries(match.evaluations).map(([term, ev]) =>
-                        `${term}: ${ev.course_quality} quality, ${ev.teaching_effectiveness} effectiveness`
-                    ).join('<br>')
-                    : '';
-                return this.rich(`
-                    <strong>${match.title}</strong> (${match.institution})<br>
-                    ${match.description}
-                    ${evals ? `<br><br><strong>Evaluations:</strong><br>${evals}` : ''}<br><br>
-                    <a href="teaching.html">Full teaching page →</a>
-                `);
+
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let buffer = '';
+            let fullResponse = '';
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+
+                buffer += decoder.decode(value, { stream: true });
+                const lines = buffer.split('\n');
+                buffer = lines.pop();
+
+                for (const line of lines) {
+                    const trimmed = line.trim();
+                    if (!trimmed || !trimmed.startsWith('data: ')) continue;
+                    const data = trimmed.slice(6);
+                    if (data === '[DONE]') break;
+                    try {
+                        const parsed = JSON.parse(data);
+                        if (parsed.content) {
+                            fullResponse += parsed.content;
+                            messageEl.innerHTML = this.renderMarkdown(fullResponse);
+                            // Auto-scroll
+                            const container = document.getElementById('chatbot-messages');
+                            container.scrollTop = container.scrollHeight;
+                        }
+                    } catch { /* skip */ }
+                }
             }
-        }
 
-        const current = k?.current?.map(c => `• ${c}`).join('<br>') || '';
-        const past = k?.past_highlights?.map(c => `• ${c}`).join('<br>') || '';
-        return this.rich(`
-            <strong>Current teaching:</strong><br>${current}<br><br>
-            <strong>Highlights:</strong><br>${past}<br><br>
-            <a href="teaching.html">Full teaching page →</a>
-        `);
-    }
+            // Save assistant response to history
+            this.conversationHistory.push({ role: 'assistant', content: fullResponse });
 
-    handleStudents() {
-        const s = this.knowledge?.students;
-        return this.rich(`
-            Charles actively works with students:<br><br>
-            • Published <strong>${s?.publications_with_undergrads} papers with undergrads</strong> and ${s?.publications_with_grad_students} with grad students<br>
-            • Advised <strong>${s?.theses_advised} theses</strong> at Dartmouth<br>
-            • Supervises PhD students at Monash in: ${s?.phd_areas}<br><br>
-            📝 <a href="${s?.letter_form}" target="_blank">Request a letter</a><br>
-            📅 <a href="${s?.scheduling}" target="_blank">Schedule a meeting</a><br><br>
-            <a href="students.html">Students page →</a>
-        `);
-    }
-
-    handleCollaboration() {
-        const c = this.knowledge?.collaboration;
-        const workshops = c?.workshops_founded?.map(w => `• ${w}`).join('<br>') || '';
-        return this.rich(`
-            Charles has <strong>${c?.coauthors}</strong> and has organized ${c?.conferences_organized}.<br><br>
-            <strong>Workshops founded:</strong><br>${workshops}<br><br>
-            Erdős number: <strong>${c?.erdos_number}</strong><br><br>
-            <a href="collaboration.html">Collaboration page →</a> · <a href="coauthors.html">View coauthors →</a>
-        `);
-    }
-
-    handleMedia() {
-        const m = this.knowledge?.media;
-        return this.rich(`
-            Charles writes for public audiences and provides expert commentary.<br><br>
-            <strong>Public writing in:</strong> ${m?.public_writing_outlets}<br><br>
-            <strong>Featured in:</strong> ${m?.outlets_featured_in}<br><br>
-            <strong>Recent topics:</strong> ${m?.recent_topics}<br><br>
-            <a href="media.html">Media page →</a>
-        `);
-    }
-
-    handleNavigation(query) {
-        const pages = this.knowledge?.pages || {};
-        const q = query.toLowerCase();
-        for (const [page, desc] of Object.entries(pages)) {
-            const words = desc.toLowerCase().split(/\s+/);
-            if (words.some(w => q.includes(w) && w.length > 3)) {
-                return this.rich(`Try the <a href="${page}"><strong>${page.replace('.html', '')}</strong></a> page: ${desc}`);
+            // Trim history if it gets long
+            if (this.conversationHistory.length > 20) {
+                this.conversationHistory = this.conversationHistory.slice(-16);
             }
-        }
-        const links = Object.entries(pages)
-            .map(([p, d]) => `• <a href="${p}">${p.replace('.html', '')}</a> — ${d}`)
-            .join('<br>');
-        return this.rich(`Here are all the pages on this site:<br><br>${links}`);
-    }
 
-    handleFollowup() {
-        if (this.lastResults.length > 0) {
-            const extra = this.lastResults.map(r => {
-                const authors = (r.pub.authors || []).join(', ');
-                const kw = (r.pub.keywords || []).join(', ');
-                return `<strong>${r.pub.title}</strong><br>Authors: ${authors}<br>Keywords: <em>${kw}</em>`;
-            }).join('<br><br>');
-            return this.rich(extra);
+            return true;
+        } catch (e) {
+            console.warn('LLM unavailable, using fallback:', e.message);
+            this.llmAvailable = false;
+            return false;
         }
-        return this.rich(`Could you be more specific? I can tell you about research areas, publications, teaching, collaboration, media, or contact details.`);
-    }
-
-    rich(content) {
-        return { html: true, content: content.trim() };
     }
 
     // ── UI ────────────────────────────────────────────────────
@@ -379,7 +260,7 @@ class SiteChatbot {
                     
                     <div class="chatbot-suggestions">
                         <button class="suggestion-btn" data-query="What does Charles research?">Research areas</button>
-                        <button class="suggestion-btn" data-query="Papers on discrimination">Discrimination</button>
+                        <button class="suggestion-btn" data-query="Tell me about papers on discrimination">Discrimination</button>
                         <button class="suggestion-btn" data-query="What courses has Charles taught?">Teaching</button>
                         <button class="suggestion-btn" data-query="How can I contact Charles?">Contact</button>
                     </div>
@@ -426,60 +307,77 @@ class SiteChatbot {
     }
 
     addWelcomeMessage() {
-        this.addMessage({
-            html: true,
-            content: `Hi! I can help you explore Charles Crabtree's <strong>research</strong>, <strong>publications</strong>, <strong>teaching</strong>, and more. What would you like to know?`
-        }, 'bot');
+        this.addMessage(
+            `Hi! I'm an AI assistant for Charles Crabtree's site. Ask me about his **research**, **publications**, **teaching**, **students**, **media**, or anything else. What would you like to know?`,
+            'bot'
+        );
     }
 
-    sendMessage() {
+    async sendMessage() {
         const input = document.getElementById('chatbot-input');
         const message = input.value.trim();
         if (!message) return;
 
+        // Show user message
         this.addMessage(message, 'user');
         input.value = '';
-        this.showTyping();
+        input.disabled = true;
+        document.getElementById('chatbot-send').disabled = true;
 
-        setTimeout(() => {
-            this.hideTyping();
-            const response = this.generateResponse(message);
-            this.addMessage(response, 'bot');
-        }, 400 + Math.random() * 400);
+        // Create bot message container for streaming
+        const container = document.getElementById('chatbot-messages');
+        const botDiv = document.createElement('div');
+        botDiv.className = 'chatbot-message bot-message';
+
+        if (this.llmAvailable) {
+            // Show typing indicator, then replace with stream
+            botDiv.innerHTML = '<span class="typing-dots"><span></span><span></span><span></span></span>';
+            container.appendChild(botDiv);
+            container.scrollTop = container.scrollHeight;
+
+            const success = await this.streamFromLLM(message, botDiv);
+            if (!success) {
+                // Fallback to local
+                const local = this.generateLocalResponse(message);
+                botDiv.innerHTML = this.renderMarkdown(local);
+            }
+        } else {
+            // Directly use local fallback
+            const local = this.generateLocalResponse(message);
+            botDiv.innerHTML = this.renderMarkdown(local);
+            container.appendChild(botDiv);
+        }
+
+        container.scrollTop = container.scrollHeight;
+        input.disabled = false;
+        document.getElementById('chatbot-send').disabled = false;
+        input.focus();
     }
 
     addMessage(content, type) {
         const container = document.getElementById('chatbot-messages');
         const div = document.createElement('div');
         div.className = `chatbot-message ${type}-message`;
-
-        if (typeof content === 'object' && content.html) {
-            div.innerHTML = content.content;
-        } else {
-            div.textContent = content;
-        }
-
+        div.innerHTML = this.renderMarkdown(content);
         container.appendChild(div);
         container.scrollTop = container.scrollHeight;
-    }
-
-    showTyping() {
-        const container = document.getElementById('chatbot-messages');
-        const div = document.createElement('div');
-        div.className = 'chatbot-message bot-message typing-indicator';
-        div.id = 'chatbot-typing';
-        div.innerHTML = '<span></span><span></span><span></span>';
-        container.appendChild(div);
-        container.scrollTop = container.scrollHeight;
-    }
-
-    hideTyping() {
-        const el = document.getElementById('chatbot-typing');
-        if (el) el.remove();
     }
 }
 
-// Initialize
+// ── Stop words for TF-IDF ─────────────────────────────────────
+
+const STOP_WORDS = new Set([
+    'the','and','for','are','but','not','you','all','can','her','was','one','our',
+    'out','has','had','its','with','this','that','from','they','been','have','many',
+    'some','them','than','each','make','like','into','over','such','after','also',
+    'how','who','what','when','where','which','about','their','would','there','could',
+    'other','more','very','most','does','did','paper','papers','article','articles',
+    'study','studies','show','shows','find','finds','evidence','using','based','new',
+    'charles','crabtree'
+]);
+
+// ── Initialize ────────────────────────────────────────────────
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => new SiteChatbot());
 } else {
