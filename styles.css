@@ -971,7 +971,8 @@ em {
 
 .gallery-main img {
     width: 100%;
-    height: auto;
+    height: 400px;
+    object-fit: cover;
     display: block;
     border: 2px solid rgba(224, 224, 224, 0.6);
     border-radius: 8px;
