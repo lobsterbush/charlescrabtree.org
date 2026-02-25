@@ -1169,10 +1169,10 @@ blockquote::before {
 
 /* Info Box (Green - Default) */
 .alert-info {
-    background: linear-gradient(135deg, rgba(74, 155, 103, 0.12) 0%, rgba(74, 155, 103, 0.06) 100%);
-    border-color: rgba(74, 155, 103, 0.25);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.02) 100%);
+    border-color: rgba(0, 0, 0, 0.1);
     border-left-color: var(--green);
-    box-shadow: 0 2px 8px rgba(74, 155, 103, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     color: var(--text-primary);
 }
 
