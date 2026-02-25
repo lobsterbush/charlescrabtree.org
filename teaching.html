@@ -89,11 +89,15 @@
 
 <p>I now regularly teach methods courses at leading summer programs and professional development institutes worldwide. These courses focus on helping researchers use artificial intelligence and computational tools to design better research, conduct experiments, and analyze complex social phenomena.</p>
 
-<h3>AI-enhanced research and experimental design</h3>
-
-<div class="image-card">
-    <img src="images/vilnius-students.jpg" alt="With AI and Experimental Methods students at IPSA-NUS 2025" loading="lazy">
-    <span class="img-caption">With my AI and Experimental Methods students at IPSA-NUS 2025</span>
+<div class="image-gallery">
+    <div class="gallery-main">
+        <img id="methods-gallery-img" src="images/vilnius-students.jpg" alt="Methods teaching photo" loading="lazy">
+        <span id="methods-gallery-caption" class="gallery-caption">With my AI and Experimental Methods students at IPSA-NUS 2025</span>
+    </div>
+    <div class="gallery-thumbnails" style="grid-template-columns: repeat(2, 1fr);">
+        <img src="images/vilnius-students.jpg" alt="IPSA-NUS 2025" class="gallery-thumb active" data-gallery="methods" data-caption="With my AI and Experimental Methods students at IPSA-NUS 2025" onclick="switchGalleryImage(this)">
+        <img src="images/ftu.jpg" alt="Foreign Trade University" class="gallery-thumb" data-gallery="methods" data-caption="With friends at Foreign Trade University talking about future courses" onclick="switchGalleryImage(this)">
+    </div>
 </div>
 
 <p>I've taught AI and experimental methods courses at several leading summer programs and professional development institutes:</p>
@@ -229,12 +233,15 @@
     <script src="site-utilities.js?v=14"></script>
     <script>
     function switchGalleryImage(thumb) {
-        // Update main image and caption
-        document.getElementById('gallery-main-img').src = thumb.src;
-        document.getElementById('gallery-caption').textContent = thumb.getAttribute('data-caption');
+        // Find the parent gallery container
+        var gallery = thumb.closest('.image-gallery');
         
-        // Update active state on thumbnails
-        document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+        // Update main image and caption within this gallery
+        gallery.querySelector('.gallery-main img').src = thumb.src;
+        gallery.querySelector('.gallery-caption').textContent = thumb.getAttribute('data-caption');
+        
+        // Update active state on thumbnails within this gallery only
+        gallery.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
         thumb.classList.add('active');
     }
     </script>
