@@ -1003,7 +1003,7 @@ em {
 
 .gallery-thumb {
     width: 100%;
-    max-width: 120px;
+    max-width: 80px;
     height: auto;
     aspect-ratio: 1;
     object-fit: cover;
