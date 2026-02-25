@@ -716,10 +716,32 @@ function smoothScrollTo(element) {
     });
 }
 
+// Active Nav Link
+function setActiveNavLink() {
+    const path = window.location.pathname;
+    const currentPage = path.split('/').pop() || 'index.html';
+    
+    document.querySelectorAll('.nav-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+            link.classList.add('active');
+        }
+    });
+    
+    document.querySelectorAll('.mobile-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+            link.style.color = 'var(--green)';
+            link.style.fontWeight = '600';
+        }
+    });
+}
+
 // Initialize all utilities
 document.addEventListener('DOMContentLoaded', () => {
     new BackToTop();
     new Breadcrumbs();
+    setActiveNavLink();
     new SiteSearch();
     new ReadingProgress();
     new DarkMode();
