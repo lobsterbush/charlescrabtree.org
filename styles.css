@@ -1308,7 +1308,7 @@ blockquote::before {
 .pub-list li::before {
     content: '»';
     position: absolute;
-    left: 0;
+    left: 0.25rem;
     color: var(--accent);
     font-family: var(--font-mono);
 }
