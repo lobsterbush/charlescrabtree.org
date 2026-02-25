@@ -995,17 +995,14 @@ em {
 }
 
 .gallery-thumbnails {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
     gap: 1rem;
     margin-top: 1.5rem;
 }
 
 .gallery-thumb {
-    width: 100%;
-    max-width: 80px;
-    height: auto;
-    aspect-ratio: 1;
+    width: 80px;
+    height: 80px;
     object-fit: cover;
     cursor: pointer;
     border: 2px solid rgba(224, 224, 224, 0.4);
@@ -1039,7 +1036,7 @@ em {
     }
     
     .gallery-thumbnails {
-        grid-template-columns: repeat(2, 1fr);
+        flex-wrap: wrap;
         gap: 0.75rem;
     }
     
