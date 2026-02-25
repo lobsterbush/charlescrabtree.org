@@ -14,9 +14,9 @@
     
     --accent: #0066cc;
     --accent-hover: #0052a3;
-    --accent-secondary: #00a86b;
-    --green: #4A9B67;
-    --green-light: #67B084;
+    --accent-secondary: #007A4D;
+    --green: #2A7347;
+    --green-light: #4A9B67;
     --green-subtle: rgba(74, 155, 103, 0.1);
     --warning: #f59e0b;
     --warning-light: #fbbf24;
@@ -692,7 +692,7 @@ em {
 }
 
 .erdos-arrow {
-    color: var(--green-light);
+    color: var(--green);
     font-weight: 600;
 }
 
@@ -1009,7 +1009,7 @@ em {
     border: 2px solid rgba(224, 224, 224, 0.4);
     border-radius: 6px;
     transition: all var(--transition-smooth);
-    opacity: 0.6;
+    opacity: 0.75;
     margin: 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
@@ -3332,7 +3332,12 @@ body.dark-mode {
     
     --text-primary: #e6edf3;
     --text-secondary: #8b949e;
-    --text-muted: #6e7681;
+    --text-muted: #8b949e;
+    
+    --accent: #58a6ff;
+    --accent-hover: #79b8ff;
+    --green: #56d364;
+    --green-light: #56d364;
     
     --border: #30363d;
     --shadow: rgba(0, 0, 0, 0.3);
@@ -3410,6 +3415,7 @@ body.dark-mode .action-secondary {
 body.dark-mode .action-primary {
     background: var(--green);
     border-color: var(--green);
+    color: #0f1419;
 }
 
 body.dark-mode .contact-link {
