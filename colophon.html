@@ -96,15 +96,31 @@
             </section>
 
             <section class="section" style="margin-top: 2rem;">
-                <p>This website was written as an <a href="https://www.themarginalian.org/2022/10/16/nick-cave-hope-faith-carnage-self-forgiveness/" target="_blank">act of hope and love, as all acts of creation are</a>.</p>
-                <figure style="margin: 2rem auto; max-width: 240px;">
-                    <img src="images/crochet-heart.png" alt="A red crocheted heart" style="width: 100%; height: auto;">
-                    <figcaption style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-secondary); font-style: italic;">Crochet magic by my daughter.</figcaption>
-                </figure>
+                <div style="position: relative; width: 320px; height: 320px; margin: 0 auto;">
+                    <a href="https://www.themarginalian.org/2022/10/16/nick-cave-hope-faith-carnage-self-forgiveness/" target="_blank" style="text-decoration: none;">
+                        <svg viewBox="0 0 320 320" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; animation: spin 30s linear infinite;">
+                            <defs>
+                                <path id="circlePath" d="M 160, 160 m -130, 0 a 130,130 0 1,1 260,0 a 130,130 0 1,1 -260,0" />
+                            </defs>
+                            <text font-family="'Space Grotesk', sans-serif" font-size="14" letter-spacing="3" fill="var(--text-secondary)">
+                                <textPath href="#circlePath">• this website was written as an act of hope and love, as all acts of creation are •</textPath>
+                            </text>
+                        </svg>
+                    </a>
+                    <img src="images/crochet-heart.png" alt="A red crocheted heart" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 160px; height: auto;">
+                </div>
+                <p style="text-align: center; margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-secondary); font-style: italic;">Crochet magic by my daughter.</p>
                 <p style="text-align: center; margin-top: 2rem;">
                     <a href="https://github.com/lobsterbush/charlescrabtree.org" target="_blank" class="action-btn action-primary">View source on GitHub →</a>
                 </p>
             </section>
+
+            <style>
+                @keyframes spin {
+                    from { transform: rotate(0deg); }
+                    to { transform: rotate(360deg); }
+                }
+            </style>
         </div>
     </main>
 
