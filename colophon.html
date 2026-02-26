@@ -96,18 +96,18 @@
             </section>
 
             <section class="section" style="margin-top: 2rem;">
-                <div style="position: relative; width: 320px; height: 320px; margin: 0 auto;">
-                    <a href="https://www.themarginalian.org/2022/10/16/nick-cave-hope-faith-carnage-self-forgiveness/" target="_blank" style="text-decoration: none;">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 320" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; animation: spin 30s linear infinite;">
-                            <defs>
-                                <path id="circlePath" d="M 160,160 m -130,0 a 130,130 0 1,1 260,0 a 130,130 0 1,1 -260,0" />
-                            </defs>
-                            <text style="fill: #666; font-family: 'Space Grotesk', sans-serif; font-size: 14px; letter-spacing: 3px;">
-                                <textPath xlink:href="#circlePath" href="#circlePath">• this website was written as an act of hope and love, as all acts of creation are •</textPath>
+                <div class="circle-text-container">
+                    <svg class="circle-text-svg" viewBox="0 0 300 300" width="300" height="300">
+                        <defs>
+                            <path id="textCircle" fill="none" d="M 150,150 m -120,0 a 120,120 0 1,1 240,0 a 120,120 0 1,1 -240,0" />
+                        </defs>
+                        <a href="https://www.themarginalian.org/2022/10/16/nick-cave-hope-faith-carnage-self-forgiveness/" target="_blank">
+                            <text class="circle-text">
+                                <textPath href="#textCircle">• this website was written as an act of hope and love, as all acts of creation are •</textPath>
                             </text>
-                        </svg>
-                    </a>
-                    <img src="images/crochet-heart.png" alt="A red crocheted heart" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 160px; height: auto;">
+                        </a>
+                    </svg>
+                    <img src="images/crochet-heart.png" alt="A red crocheted heart" class="circle-heart">
                 </div>
                 <p style="text-align: center; margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-secondary); font-style: italic;">Crochet magic by my daughter.</p>
                 <p style="text-align: center; margin-top: 2rem;">
@@ -116,6 +116,40 @@
             </section>
 
             <style>
+                .circle-text-container {
+                    position: relative;
+                    width: 300px;
+                    height: 300px;
+                    margin: 0 auto;
+                }
+                .circle-text-svg {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    overflow: visible;
+                    animation: spin 30s linear infinite;
+                }
+                .circle-text {
+                    fill: #555;
+                    font-family: 'Space Grotesk', sans-serif;
+                    font-size: 13.5px;
+                    letter-spacing: 2.5px;
+                }
+                .circle-text a {
+                    fill: #555;
+                    text-decoration: none;
+                }
+                .circle-heart {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 150px;
+                    height: auto;
+                    pointer-events: none;
+                }
                 @keyframes spin {
                     from { transform: rotate(0deg); }
                     to { transform: rotate(360deg); }
