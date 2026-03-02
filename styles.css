@@ -1337,8 +1337,13 @@ blockquote::before {
 /* Altmetric Badges */
 .altmetric-badge-container {
     float: right;
-    margin-left: 1rem;
-    margin-bottom: 0.25rem;
+    margin: 0 0 0 0.75rem;
+    line-height: 0;
+}
+
+.altmetric-badge-container,
+.altmetric-badge-container * {
+    background-color: transparent !important;
 }
 
 @media (max-width: 480px) {
