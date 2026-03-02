@@ -1334,6 +1334,20 @@ blockquote::before {
     color: var(--accent-hover);
 }
 
+/* Altmetric Badges */
+.altmetric-badge-container {
+    float: right;
+    margin-left: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+@media (max-width: 480px) {
+    .altmetric-badge-container {
+        float: none;
+        margin: 0 0 0.5rem 0;
+    }
+}
+
 /* Two-column collaborator list */
 .collaborator-two-col {
     display: grid;
