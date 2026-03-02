@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css?v=18">
+    <script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js" async></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -476,30 +477,16 @@
     <!-- Altmetric badges (auto-injected from DOI links on this page) -->
     <script>
     (function() {
-        function extractDoiFromHref(href) {
-            if (!href) return null;
-
-            // Match canonical DOI resolver links.
-            var match = href.match(/doi\.org\/(.+)/i);
-            if (match) {
-                return match[1]
-                    .replace(/\/$/, '')
-                    .split('?')[0]
-                    .split('#')[0]
-                    .trim();
-            }
-
-            return null;
-        }
-
         function extractDoi(entry) {
             var links = entry.querySelectorAll('a[href]');
-
             for (var i = 0; i < links.length; i++) {
-                var doiFromHref = extractDoiFromHref(links[i].getAttribute('href'));
-                if (doiFromHref) return doiFromHref;
+                var href = links[i].getAttribute('href');
+                if (!href) continue;
+                var match = href.match(/doi\.org\/(.+)/i);
+                if (match) {
+                    return match[1].replace(/\/$/, '').split('?')[0].split('#')[0].trim();
+                }
             }
-
             return null;
         }
 
@@ -508,18 +495,15 @@
             var injected = 0;
 
             entries.forEach(function(entry) {
-                // Avoid duplicates if something re-runs.
                 if (entry.querySelector('.altmetric-embed')) return;
 
                 var doi = extractDoi(entry);
                 if (!doi) return;
 
-                // <p> cannot contain <div>, so use <span> for paragraph entries.
-                var isParagraph = entry.tagName && entry.tagName.toLowerCase() === 'p';
-                var container = document.createElement(isParagraph ? 'span' : 'div');
+                var container = document.createElement('div');
                 container.className = 'altmetric-badge-container';
 
-                var badge = document.createElement(isParagraph ? 'span' : 'div');
+                var badge = document.createElement('div');
                 badge.className = 'altmetric-embed';
                 badge.setAttribute('data-badge-type', 'donut');
                 badge.setAttribute('data-doi', doi);
@@ -534,13 +518,15 @@
 
             if (injected === 0) return;
 
-            // Load the Altmetric embed script once.
-            if (document.querySelector('script[src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"]')) return;
-
-            var script = document.createElement('script');
-            script.src = 'https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js';
-            script.async = true;
-            document.head.appendChild(script);
+            // Re-scan for dynamically added badges.
+            function tryInit() {
+                if (typeof _altmetric_embed_init === 'function') {
+                    _altmetric_embed_init();
+                } else {
+                    setTimeout(tryInit, 200);
+                }
+            }
+            tryInit();
         }
 
         if (document.readyState === 'loading') {
