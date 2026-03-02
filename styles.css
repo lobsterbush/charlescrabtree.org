@@ -1341,13 +1341,9 @@ blockquote::before {
     line-height: 0;
 }
 
-.altmetric-badge-container,
-.altmetric-badge-container * {
-    background: transparent !important;
-}
-
 .altmetric-badge-container img {
-    mix-blend-mode: multiply;
+    display: block;
+    border-radius: 50%;
 }
 
 @media (max-width: 480px) {
