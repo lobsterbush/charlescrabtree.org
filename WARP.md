@@ -3,7 +3,8 @@
 ## Overview
 Personal academic website for Charles Crabtree built with vanilla HTML, CSS, and JavaScript.
 
-## Recent Updates (February 2026)
+## Recent Updates (March 2026)
+- **Altmetric badges**: Added Altmetric donut badges to `publications.html` — auto-detected from DOI links via inline JS, rendered with the Altmetric embed API. Badges float right, scaled to 48px, hidden when no mentions exist.
 - **Publications page**: Added forthcoming PNAS Nexus article ("Can AI Help Reduce Prejudice?") to top of select publications
 - **Hover colors**: Fixed inconsistent hover colors on research/publications pages (all now use green)
 - **Public writing**: Added "China's 'Rat People'" entry (Feb 14, 2026) to media.html, now showing 6 recent pieces
@@ -13,6 +14,7 @@ Personal academic website for Charles Crabtree built with vanilla HTML, CSS, and
 
 ## Key Files
 - **CV source**: `/Users/f00421k/Dropbox/cv/c_crabtree_cv.tex` (LaTeX)
+- **Publications page**: `publications.html` - all journal articles with Altmetric badges
 - **Media page**: `media.html` - displays public scholarship, podcast, media appearances, media coverage
 - **Sync script**: `update_recent_scholarship.py` - extracts entries from CV and updates media.html
 
@@ -30,9 +32,17 @@ The `update_recent_scholarship.py` script automatically syncs the 5 most recent 
 - Collapsible sections use `year-section` class with `year-header` and `year-content` divs
 
 ### Styling
-- CSS version: `styles.css?v=6`
+- CSS version: `styles.css?v=19`
 - Fonts: Space Grotesk (headings), IBM Plex Mono (code)
 - Follow existing indentation and formatting patterns
+
+### Altmetric Badges
+- Inline JS at bottom of `publications.html` auto-detects DOIs from `doi.org/` links
+- Creates `<div class="altmetric-embed">` elements with `data-badge-type="donut"`
+- Embed script loaded in `<head>` via `https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js`
+- `_altmetric_embed_init()` called after badge injection to re-scan DOM
+- `data-hide-no-mentions="true"` hides badges for papers without Altmetric data
+- Badge images scaled to 48px with `border-radius: 50%`
 
 ### Media Coverage Section
 - All outlet names should be italicized with `<em>` tags
@@ -40,7 +50,7 @@ The `update_recent_scholarship.py` script automatically syncs the 5 most recent 
 - NPR format: `NPR's <em>All Things Considered</em>`
 
 ### Git Commits
-- Always include `Co-Authored-By: Warp <agent@warp.dev>` for AI-assisted commits
+- Always include `Co-Authored-By: Oz <oz-agent@warp.dev>` for AI-assisted commits
 - Keep commits atomic and descriptive
 
 ## Do NOT
