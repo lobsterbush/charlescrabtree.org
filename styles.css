@@ -1343,7 +1343,11 @@ blockquote::before {
 
 .altmetric-badge-container,
 .altmetric-badge-container * {
-    background-color: transparent !important;
+    background: transparent !important;
+}
+
+.altmetric-badge-container img {
+    mix-blend-mode: multiply;
 }
 
 @media (max-width: 480px) {
