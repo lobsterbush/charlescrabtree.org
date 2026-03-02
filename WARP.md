@@ -4,18 +4,22 @@
 Personal academic website for Charles Crabtree built with vanilla HTML, CSS, and JavaScript.
 
 ## Recent Updates (March 2026)
-- **Altmetric badges**: Added Altmetric donut badges to `publications.html` — auto-detected from DOI links via inline JS, rendered with the Altmetric embed API. Badges float right, scaled to 48px, hidden when no mentions exist.
-- **Publications page**: Added forthcoming PNAS Nexus article ("Can AI Help Reduce Prejudice?") to top of select publications
-- **Hover colors**: Fixed inconsistent hover colors on research/publications pages (all now use green)
-- **Public writing**: Added "China's 'Rat People'" entry (Feb 14, 2026) to media.html, now showing 6 recent pieces
-- **Home page bio**: Added editorial roles paragraph with links:
-  - Associate Editor at *Australian Journal of Political Science* (https://www.tandfonline.com/journals/cajp20)
-  - Secretary of Australian Society for Quantitative Political Science (https://www.asqps.org.au/)
+- **Homepage rewrite**: Conversational tone, "Social scientist" tagline, removed Wu-Tang reference, added Fundamental Needs Lab link. Kept all core content (personal background, publications, media, editorial roles, fieldwork regions).
+- **Typography modernization**: Replaced Space Grotesk + IBM Plex Mono with Plus Jakarta Sans + JetBrains Mono across all pages and CSS. Reduced monospace usage — mono kept only for stats, dates, footer copyright.
+- **Open Graph metadata**: Added og:title, og:description, og:image, og:url, og:type, and Twitter Card tags to all 14 HTML pages.
+- **Dead CSS cleanup**: Removed ~280 lines of unused chatbot styles from `styles.css`. Fixed hardcoded `Space Grotesk` in `.map-popup` to use `var(--font-sans)`.
+- **404 page**: Created `404.html` with site nav, friendly message, and back-to-home link for GitHub Pages.
+- **Colophon moved**: Removed Colophon from nav and mobile menu across all pages; remains as footer link only.
+- **Media page**: Added Profiles section (Boston Globe, Asahi Shimbun interviews). Restructured page layout.
+- **Press packet**: Created `crabtree-press-packet.zip` at `/Users/f00421k/Dropbox/me/` with bio docx and headshot.
+- **Altmetric badges**: Added Altmetric donut badges to `publications.html` — auto-detected from DOI links via inline JS.
+- **Publications page**: Added forthcoming PNAS Nexus article ("Can AI Help Reduce Prejudice?") and updated Japan Forum article title/DOI.
 
 ## Key Files
 - **CV source**: `/Users/f00421k/Dropbox/cv/c_crabtree_cv.tex` (LaTeX)
 - **Publications page**: `publications.html` - all journal articles with Altmetric badges
-- **Media page**: `media.html` - displays public scholarship, podcast, media appearances, media coverage
+- **Media page**: `media.html` - displays public scholarship, profiles, podcast, media appearances, media coverage
+- **404 page**: `404.html` - custom GitHub Pages 404
 - **Sync script**: `update_recent_scholarship.py` - extracts entries from CV and updates media.html
 
 ## CV-to-Website Sync
@@ -33,8 +37,10 @@ The `update_recent_scholarship.py` script automatically syncs the 5 most recent 
 
 ### Styling
 - CSS version: `styles.css?v=19`
-- Fonts: Space Grotesk (headings), IBM Plex Mono (code)
+- Fonts: Plus Jakarta Sans (headings/body), JetBrains Mono (code/stats/dates)
+- Font weights loaded: 400, 600, 700 (Jakarta Sans); 400, 600 (JetBrains Mono)
 - Follow existing indentation and formatting patterns
+- All pages have Open Graph and Twitter Card meta tags
 
 ### Altmetric Badges
 - Inline JS at bottom of `publications.html` auto-detects DOIs from `doi.org/` links
