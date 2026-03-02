@@ -1344,6 +1344,8 @@ blockquote::before {
 .altmetric-badge-container img {
     display: block;
     border-radius: 50%;
+    width: 48px;
+    height: 48px;
 }
 
 @media (max-width: 480px) {
@@ -1802,7 +1804,7 @@ blockquote::before {
 
 .year-content-inner p {
     transition: all var(--transition-fast);
-    margin-bottom: 0.875rem;
+    margin-bottom: 1.25rem;
 }
 
 .year-content-inner p:last-child {
