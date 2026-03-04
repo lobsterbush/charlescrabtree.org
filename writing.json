@@ -1,6 +1,14 @@
 {
-  "updated": "2026-03-03T06:36:02.627489",
+  "updated": "2026-03-04T06:32:39.891668",
   "articles": [
+    {
+      "title": "The Untold Story of Japan’s Election: The Quiet Breakthrough of Team Mirai",
+      "url": "https://thediplomat.com/2026/03/the-untold-story-of-japans-election-the-quiet-breakthrough-of-team-mirai/",
+      "date": "2026",
+      "outlet": "Publication",
+      "excerpt": "Team Mirai, a new party founded in May 2025, secured 11 seats in the lower house.",
+      "tags": []
+    },
     {
       "title": "China’s ‘Rat People’: When Education Can’t Deliver on Its Promises",
       "url": "https://thediplomat.com/2026/02/chinas-rat-people-when-education-cant-deliver-on-its-promises/",
@@ -151,14 +159,6 @@
       "date": "2020",
       "outlet": "Publication",
       "excerpt": "This year posed particular problems for democratic governments. While autocracies could limit human activities and rights with relative ease, virtually all democracies struggled to strike a delicat...",
-      "tags": []
-    },
-    {
-      "title": "Let's keep it the 'free and open' Indo-Pacific",
-      "url": "https://thehill.com/opinion/international/530570-lets-keep-it-the-free-and-open-indo-pacific",
-      "date": "2020",
-      "outlet": "Publication",
-      "excerpt": "Any power transition produces policy casualties. In the United States, this might be particularly true as an incoming administration often differentiates itself from the incumbent by quickly announ...",
       "tags": []
     }
   ]
