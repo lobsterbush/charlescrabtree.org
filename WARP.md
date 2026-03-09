@@ -14,6 +14,8 @@ Personal academic website for Charles Crabtree built with vanilla HTML, CSS, and
 - **Press packet**: Created `crabtree-press-packet.zip` at `/Users/f00421k/Dropbox/me/` with bio docx and headshot.
 - **Altmetric badges**: Added Altmetric donut badges to `publications.html` — auto-detected from DOI links via inline JS.
 - **Publications page**: Added forthcoming PNAS Nexus article ("Can AI Help Reduce Prejudice?") and updated Japan Forum article title/DOI.
+- **What's New widget**: Collapsible cutout tab hanging under the nav on all 14 pages. Collapsed by default; expands to show Latest updates and Upcoming Talks & Presentations in a two-column grid. Content loaded from `updates.json` and `calendar-config.js`.
+- **Site utilities refactor**: Search (🔍) and dark mode (🌙) toggles live in the nav bar (injected by `site-utilities.js`). What's New is a separate standalone widget below the nav. Removed consolidated tab-bar approach.
 
 ## Key Files
 - **CV source**: `/Users/f00421k/Dropbox/cv/c_crabtree_cv.tex` (LaTeX)
@@ -21,6 +23,9 @@ Personal academic website for Charles Crabtree built with vanilla HTML, CSS, and
 - **Media page**: `media.html` - displays public scholarship, profiles, podcast, media appearances, media coverage
 - **404 page**: `404.html` - custom GitHub Pages 404
 - **Sync script**: `update_recent_scholarship.py` - extracts entries from CV and updates media.html
+- **Site utilities**: `site-utilities.js` - injects search and dark mode toggles into nav
+- **What's New JS**: `whats-new.js` - toggle behavior and content rendering for the widget
+- **Widget data**: `updates.json` - latest updates content; `calendar-config.js` - upcoming talks
 
 ## CV-to-Website Sync
 The `update_recent_scholarship.py` script automatically syncs the 5 most recent public scholarship entries from the CV to the media page:
@@ -36,11 +41,20 @@ The `update_recent_scholarship.py` script automatically syncs the 5 most recent 
 - Collapsible sections use `year-section` class with `year-header` and `year-content` divs
 
 ### Styling
-- CSS version: `styles.css?v=19`
+- CSS version: `styles.css?v=21`
 - Fonts: Plus Jakarta Sans (headings/body), JetBrains Mono (code/stats/dates)
 - Font weights loaded: 400, 600, 700 (Jakarta Sans); 400, 600 (JetBrains Mono)
 - Follow existing indentation and formatting patterns
 - All pages have Open Graph and Twitter Card meta tags
+
+### What's New Widget
+- Fixed-position cutout tab under nav: `.wn-widget` with `.wn-toggle` button
+- Collapsed by default (`collapsed` class); toggle expands two-column panel
+- `.wn-toggle` has cutout styling (background blur, border, border-radius 0 0 4px 4px, box-shadow)
+- When expanded, `.wn-widget:not(.collapsed)` gets full-width background; toggle loses cutout styling
+- Nav order: Research, Publications, Teaching, Media, Collaboration, Students, CV, 🔍 (search), 🌙 (dark mode)
+- Search and dark mode are injected into `.nav-links` by `site-utilities.js` (search after CV, dark mode at end)
+- Hero/page padding includes `+ 18px` offset for the hanging tab
 
 ### Altmetric Badges
 - Inline JS at bottom of `publications.html` auto-detects DOIs from `doi.org/` links
