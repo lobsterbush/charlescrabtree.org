@@ -3487,14 +3487,22 @@ body.dark-mode .leaflet-control-zoom a:hover {
 }
 
 /* ========================================
-   What's New Widget (floating, collapsible)
+   What's New Widget (fixed right sidebar)
    ======================================== */
 .wn-widget {
-    float: left;
-    width: 280px;
-    margin: 0.25rem 1.75rem 1rem 0;
+    position: fixed;
+    right: 1rem;
+    top: calc(var(--nav-height) + 1rem);
+    width: 260px;
     padding: 0;
     overflow: hidden;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
 }
 
 .wn-toggle {
@@ -3502,7 +3510,7 @@ body.dark-mode .leaflet-control-zoom a:hover {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 0.625rem 1rem;
+    padding: 0.5rem 0.875rem;
     background: none;
     border: none;
     cursor: pointer;
@@ -3515,8 +3523,17 @@ body.dark-mode .leaflet-control-zoom a:hover {
     background: rgba(74, 155, 103, 0.04);
 }
 
+.wn-toggle:focus {
+    outline: none;
+}
+
+.wn-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+}
+
 .wn-toggle-title {
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -3524,7 +3541,7 @@ body.dark-mode .leaflet-control-zoom a:hover {
 }
 
 .wn-toggle-icon {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
     transition: transform var(--transition-smooth);
 }
@@ -3538,9 +3555,9 @@ body.dark-mode .leaflet-control-zoom a:hover {
 }
 
 .wn-body {
-    padding: 0.625rem 1rem 0.75rem;
-    max-height: 600px;
-    overflow: hidden;
+    padding: 0.5rem 0.875rem 0.625rem;
+    max-height: 800px;
+    overflow-y: auto;
     transition: max-height 0.35s ease, padding 0.35s ease, opacity 0.25s ease;
     opacity: 1;
 }
@@ -3693,9 +3710,15 @@ a.wn-item-title:hover {
 
 @media (max-width: 768px) {
     .wn-widget {
-        float: none;
-        width: 100%;
-        margin: 0 0 1.5rem 0;
+        position: fixed;
+        right: 0.5rem;
+        top: auto;
+        bottom: 0.5rem;
+        width: calc(100% - 1rem);
+        max-height: 60vh;
+    }
+    .wn-body {
+        max-height: 50vh;
     }
 }
 
