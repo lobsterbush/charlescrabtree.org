@@ -92,27 +92,31 @@
         </div>
     </main>
 
-    <!-- What's New -->
-    <section class="container whats-new-section">
-        <h2 class="whats-new-heading">What's New</h2>
-        <div class="whats-new-grid">
-            <div class="card whats-new-card">
-                <h3 class="wn-card-title">Latest</h3>
-                <div id="latest-updates">
-                    <p class="wn-loading">Loading updates…</p>
+    <!-- About Section -->
+    <section class="container section-about">
+        <!-- What's New (floating widget) -->
+        <div class="wn-widget card" id="whats-new-widget">
+            <button class="wn-toggle" id="wn-toggle" aria-expanded="true" aria-controls="wn-body">
+                <span class="wn-toggle-title">What's New</span>
+                <span class="wn-toggle-icon">▾</span>
+            </button>
+            <div class="wn-body" id="wn-body">
+                <div class="wn-section">
+                    <h3 class="wn-card-title">Latest</h3>
+                    <div id="latest-updates">
+                        <p class="wn-loading">Loading…</p>
+                    </div>
                 </div>
-            </div>
-            <div class="card whats-new-card">
-                <h3 class="wn-card-title">Upcoming</h3>
-                <div id="upcoming-events">
-                    <p class="wn-loading">Loading schedule…</p>
+                <div class="wn-divider"></div>
+                <div class="wn-section">
+                    <h3 class="wn-card-title">Upcoming</h3>
+                    <div id="upcoming-events">
+                        <p class="wn-loading">Loading…</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- About Section -->
-    <section class="container section-about">
         <h2 class="section-about-title">I study intergroup relations and conflict</h2>
         <p class="lead">I'm interested in how social boundaries — race, ethnicity, class, disability, nationality — get constructed, politicized, and contested. A big part of that is measurement: figuring out how to observe things like discrimination, bias, and exclusion that people often try to hide. Much of my work asks a simple question: why do people so frequently treat those who differ from them poorly, and what might actually change that?</p>
         

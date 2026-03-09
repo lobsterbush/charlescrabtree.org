@@ -2,7 +2,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     loadLatestUpdates();
     loadUpcomingEvents();
+    initWidgetToggle();
 });
+
+// --- Collapse/Expand toggle ---
+function initWidgetToggle() {
+    const toggle = document.getElementById('wn-toggle');
+    const widget = document.getElementById('whats-new-widget');
+    if (!toggle || !widget) return;
+
+    toggle.addEventListener('click', () => {
+        const collapsed = widget.classList.toggle('collapsed');
+        toggle.setAttribute('aria-expanded', !collapsed);
+    });
+}
 
 // --- Latest Updates (from updates.json) ---
 async function loadLatestUpdates() {
