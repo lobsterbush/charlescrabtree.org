@@ -19,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=19">
+    <link rel="stylesheet" href="styles.css?v=20">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
@@ -43,6 +43,30 @@
             </button>
         </div>
     </nav>
+
+    <!-- What's New (collapsible bar under nav, homepage only) -->
+    <div class="wn-widget collapsed" id="whats-new-widget">
+        <button class="wn-toggle" id="wn-toggle" aria-expanded="false" aria-controls="wn-body">
+            <span class="wn-toggle-title">What's New</span>
+            <span class="wn-toggle-icon">▾</span>
+        </button>
+        <div class="wn-body" id="wn-body">
+            <div class="wn-body-grid">
+                <div class="wn-section">
+                    <h3 class="wn-card-title">Latest</h3>
+                    <div id="latest-updates">
+                        <p class="wn-loading">Loading…</p>
+                    </div>
+                </div>
+                <div class="wn-section">
+                    <h3 class="wn-card-title">Upcoming Talks & Presentations</h3>
+                    <div id="upcoming-events">
+                        <p class="wn-loading">Loading…</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" aria-hidden="true">
@@ -92,28 +116,6 @@
         </div>
     </main>
 
-    <!-- What's New (fixed right sidebar widget) -->
-    <div class="wn-widget" id="whats-new-widget">
-        <button class="wn-toggle" id="wn-toggle" aria-expanded="true" aria-controls="wn-body">
-            <span class="wn-toggle-title">What's New</span>
-            <span class="wn-toggle-icon">▾</span>
-        </button>
-        <div class="wn-body" id="wn-body">
-            <div class="wn-section">
-                <h3 class="wn-card-title">Latest</h3>
-                <div id="latest-updates">
-                    <p class="wn-loading">Loading…</p>
-                </div>
-            </div>
-            <div class="wn-divider"></div>
-            <div class="wn-section">
-                <h3 class="wn-card-title">Upcoming Talks & Presentations</h3>
-                <div id="upcoming-events">
-                    <p class="wn-loading">Loading…</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- About Section -->
     <section class="container section-about">
