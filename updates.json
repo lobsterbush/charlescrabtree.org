@@ -1,0 +1,43 @@
+{
+  "publications": [
+    {
+      "title": "Demographic decline as idiom of distress: Rethinking gender (in)equality in Japan",
+      "url": "https://doi.org/10.1080/09555803.2026.2639984",
+      "journal": "Japan Forum",
+      "status": "Published"
+    },
+    {
+      "title": "Can AI help reduce prejudice? Evaluating the effectiveness of AI-powered personalized persuasion on support for transgender rights",
+      "url": null,
+      "journal": "PNAS Nexus",
+      "status": "Forthcoming"
+    },
+    {
+      "title": "Sentiment on the Campaign Trail: Gender Differences in Candidates’ Use of Emotive Language",
+      "url": null,
+      "journal": "Journal of Politics",
+      "status": "Forthcoming"
+    }
+  ],
+  "media": [
+    {
+      "title": "Why did the Japanese public appear to vote against their own concerns?",
+      "url": "https://criticalasianstudies.org/commentary/2026/3/6/commentary-peter-chai-and-charles-crabtree-why-did-the-japanese-public-appear-to-vote-against-their-own-concerns",
+      "outlet": "Critical Asian Studies",
+      "date": "March 6, 2026"
+    },
+    {
+      "title": "The untold story of Japan’s election: The quiet breakthrough of Team Mirai",
+      "url": "https://thediplomat.com/2026/03/the-untold-story-of-japans-election-the-quiet-breakthrough-of-team-mirai/",
+      "outlet": "The Diplomat",
+      "date": "March 4, 2026"
+    },
+    {
+      "title": "China’s ‘rat people’: When education can’t deliver on its promises",
+      "url": "https://thediplomat.com/2026/02/chinas-rat-people-when-education-cant-deliver-on-its-promises/",
+      "outlet": "The Diplomat",
+      "date": "February 14, 2026"
+    }
+  ],
+  "generated": "2026-03-09T21:13:23.225566"
+}
