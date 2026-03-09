@@ -94,35 +94,11 @@ class DarkMode {
     }
 
     createToggle() {
-        const toggle = document.createElement('button');
-        toggle.className = 'dark-mode-toggle';
-        toggle.setAttribute('aria-label', 'Toggle dark mode');
-        toggle.innerHTML = `
-            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-        `;
-
-        // Add to nav
-        const navLinks = document.querySelector('.nav-links');
-        if (navLinks) {
-            navLinks.appendChild(toggle);
-        }
+        // Dark mode toggle is in widget tab bar as #wn-darkmode-btn (no need to create)
     }
 
     attachListeners() {
-        document.querySelector('.dark-mode-toggle')?.addEventListener('click', () => {
+        document.getElementById('wn-darkmode-btn')?.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
             const isDark = document.body.classList.contains('dark-mode');
             localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
@@ -408,22 +384,7 @@ class SiteSearch {
     }
 
     createSearchUI() {
-        // Add search toggle to nav
-        const navLinks = document.querySelector('.nav-links');
-        if (!navLinks) return;
-
-        const searchToggle = document.createElement('button');
-        searchToggle.className = 'search-toggle';
-        searchToggle.setAttribute('aria-label', 'Search site');
-        searchToggle.innerHTML = `
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.35-4.35"></path>
-            </svg>
-        `;
-        navLinks.insertBefore(searchToggle, navLinks.querySelector('.nav-cta'));
-
-        // Create search overlay
+        // Create search overlay (toggle is in widget tab bar as #wn-search-btn)
         const searchOverlay = document.createElement('div');
         searchOverlay.className = 'search-overlay';
         searchOverlay.innerHTML = `
@@ -449,8 +410,8 @@ class SiteSearch {
     }
 
     attachListeners() {
-        // Open search
-        document.querySelector('.search-toggle')?.addEventListener('click', () => {
+        // Open search from widget tab bar icon
+        document.getElementById('wn-search-btn')?.addEventListener('click', () => {
             this.open();
         });
 

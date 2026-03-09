@@ -3182,6 +3182,16 @@ body.dark-mode .footer {
     border-top-color: rgba(255, 255, 255, 0.06);
 }
 
+body.dark-mode .wn-tab-bar {
+    background: rgba(15, 20, 25, 0.92);
+    border-color: rgba(48, 54, 61, 0.4);
+}
+
+body.dark-mode .wn-widget:not(.collapsed) {
+    background: rgba(15, 20, 25, 0.92);
+    border-bottom-color: rgba(48, 54, 61, 0.4);
+}
+
 body.dark-mode main > .container,
 body.dark-mode .section-about {
     background: none;
@@ -3512,37 +3522,81 @@ body.dark-mode .leaflet-control-zoom a:hover {
     pointer-events: none;
 }
 
-.wn-toggle {
+/* Tab bar: the cutout strip with search, what's new, dark mode */
+.wn-tab-bar {
     display: inline-flex;
     align-items: center;
-    gap: 0.2rem;
-    width: auto;
-    padding: 0.1rem 0.5rem;
+    gap: 0.1rem;
+    padding: 0.1rem 0.25rem;
     background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--border);
     border-top: none;
-    border-radius: 0 0 4px 4px;
-    cursor: pointer;
-    font-family: var(--font-sans);
+    border-radius: 0 0 5px 5px;
     pointer-events: auto;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-    transition: all var(--transition-fast);
 }
 
-.wn-widget:not(.collapsed) .wn-toggle {
+.wn-widget:not(.collapsed) .wn-tab-bar {
     background: none;
     border: none;
     border-radius: 0;
     box-shadow: none;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-    padding: 0.15rem 0.75rem;
+    padding: 0.1rem 0.5rem;
+}
+
+.wn-tab-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    pointer-events: auto;
+    position: relative;
+    overflow: hidden;
+    transition: color var(--transition-fast);
+}
+
+.wn-tab-icon:hover {
+    color: var(--green);
+}
+
+.wn-tab-icon svg {
+    width: 11px;
+    height: 11px;
+}
+
+/* Sun/moon icon positioning inside the dark mode tab icon */
+.wn-tab-icon .sun-icon,
+.wn-tab-icon .moon-icon {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+}
+
+.wn-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+    padding: 0 0.3rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    pointer-events: auto;
+    transition: color var(--transition-fast);
 }
 
 .wn-toggle:hover {
-    background: rgba(74, 155, 103, 0.06);
+    color: var(--green);
 }
 
 .wn-toggle:focus {
