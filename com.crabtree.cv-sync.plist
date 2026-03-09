@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.crabtree.cv-sync</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/python3</string>
+        <string>/Users/f00421k/Documents/GitHub/personal-site/sync_cv_website.py</string>
+    </array>
+
+    <!-- Run every hour -->
+    <key>StartInterval</key>
+    <integer>3600</integer>
+
+    <!-- Also trigger when the CV file changes -->
+    <key>WatchPaths</key>
+    <array>
+        <string>/Users/f00421k/Dropbox/cv/c_crabtree_cv.tex</string>
+        <string>/Users/f00421k/Dropbox/cv/working-papers.tex</string>
+    </array>
+
+    <key>StandardOutPath</key>
+    <string>/Users/f00421k/Library/Logs/cv-sync.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/f00421k/Library/Logs/cv-sync.log</string>
+
+    <key>RunAtLoad</key>
+    <true/>
+</dict>
+</plist>
