@@ -3487,7 +3487,7 @@ body.dark-mode .leaflet-control-zoom a:hover {
 }
 
 /* ========================================
-   What's New Widget (collapsible bar under nav)
+   What's New Widget (cutout tab under nav)
    ======================================== */
 .wn-widget {
     position: fixed;
@@ -3495,29 +3495,54 @@ body.dark-mode .leaflet-control-zoom a:hover {
     left: 0;
     right: 0;
     z-index: 999;
-    background: rgba(255, 255, 255, 0.88);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wn-widget:not(.collapsed) {
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.wn-widget.collapsed {
+    pointer-events: none;
 }
 
 .wn-toggle {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
-    width: 100%;
-    padding: 0.3rem 1.5rem;
-    background: none;
-    border: none;
+    gap: 0.2rem;
+    width: auto;
+    padding: 0.1rem 0.5rem;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 4px 4px;
     cursor: pointer;
     font-family: var(--font-sans);
-    transition: background var(--transition-fast);
+    pointer-events: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    transition: all var(--transition-fast);
+}
+
+.wn-widget:not(.collapsed) .wn-toggle {
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    padding: 0.15rem 0.75rem;
 }
 
 .wn-toggle:hover {
-    background: rgba(74, 155, 103, 0.04);
+    background: rgba(74, 155, 103, 0.06);
 }
 
 .wn-toggle:focus {
@@ -3530,15 +3555,15 @@ body.dark-mode .leaflet-control-zoom a:hover {
 }
 
 .wn-toggle-title {
-    font-size: 0.625rem;
+    font-size: 0.5rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
     color: var(--text-muted);
 }
 
 .wn-toggle-icon {
-    font-size: 0.6rem;
+    font-size: 0.45rem;
     color: var(--text-muted);
     transition: transform var(--transition-smooth);
 }
@@ -3548,6 +3573,7 @@ body.dark-mode .leaflet-control-zoom a:hover {
 }
 
 .wn-body {
+    width: 100%;
     max-height: 600px;
     overflow-y: auto;
     overflow-x: hidden;
@@ -3706,9 +3732,13 @@ a.wn-item-title:hover {
     margin: 0;
 }
 
-/* Collapsed bar is ~28px tall; add that to hero top padding */
+/* Tab hangs ~18px below nav */
 .hero {
-    padding-top: calc(var(--nav-height) + 28px + 4rem);
+    padding-top: calc(var(--nav-height) + 18px + 4rem);
+}
+
+.page {
+    padding-top: calc(var(--nav-height) + 18px + 3rem);
 }
 
 @media (max-width: 768px) {
@@ -3716,6 +3746,9 @@ a.wn-item-title:hover {
         grid-template-columns: 1fr;
         gap: 1rem 0;
         padding: 0.75rem 1.25rem 1rem;
+    }
+    .wn-toggle-title {
+        font-size: 0.45rem;
     }
 }
 
