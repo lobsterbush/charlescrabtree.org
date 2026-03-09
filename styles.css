@@ -3487,90 +3487,39 @@ body.dark-mode .leaflet-control-zoom a:hover {
 }
 
 /* ========================================
-   What's New Widget (collapsible bar under nav)
+   What's New Widget (pre-footer section)
    ======================================== */
 .wn-widget {
-    position: fixed;
-    top: var(--nav-height);
-    left: 0;
-    right: 0;
-    z-index: 999;
-    background: rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    border-top: 1px solid var(--border);
+    padding: 2rem 0 2.5rem;
+    margin-top: 3rem;
 }
 
-.wn-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
-    width: 100%;
-    padding: 0.3rem 1.5rem;
-    background: none;
-    border: none;
-    cursor: pointer;
+.wn-widget .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.wn-section-title {
     font-family: var(--font-sans);
-    transition: background var(--transition-fast);
-}
-
-.wn-toggle:hover {
-    background: rgba(74, 155, 103, 0.04);
-}
-
-.wn-toggle:focus {
-    outline: none;
-}
-
-.wn-toggle:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: -2px;
-}
-
-.wn-toggle-title {
-    font-size: 0.625rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     color: var(--text-muted);
+    margin: 0 0 1.25rem;
+    padding: 0;
 }
 
-.wn-toggle-icon {
-    font-size: 0.6rem;
-    color: var(--text-muted);
-    transition: transform var(--transition-smooth);
-}
-
-.wn-widget.collapsed .wn-toggle-icon {
-    transform: rotate(-90deg);
-}
-
-.wn-body {
-    max-height: 600px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    transition: max-height 0.35s ease, padding 0.35s ease, opacity 0.25s ease;
-    opacity: 1;
-    border-top: 1px solid var(--border);
-}
-
-.wn-widget.collapsed .wn-body {
-    max-height: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    opacity: 0;
-    border-top-color: transparent;
+.wn-section-title::before {
+    display: none;
 }
 
 .wn-body-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0 2rem;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0.75rem 1.5rem 1rem;
+    gap: 0 2.5rem;
 }
 
 .wn-section {
@@ -3624,10 +3573,10 @@ body.dark-mode .leaflet-control-zoom a:hover {
 }
 
 .wn-item-title {
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     font-weight: 500;
     color: var(--text-primary);
-    line-height: 1.35;
+    line-height: 1.4;
     text-decoration: none;
 }
 
@@ -3687,10 +3636,10 @@ a.wn-item-title:hover {
 }
 
 .wn-event-title {
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     font-weight: 500;
     color: var(--text-primary);
-    line-height: 1.35;
+    line-height: 1.4;
 }
 
 .wn-event-location {
@@ -3706,16 +3655,14 @@ a.wn-item-title:hover {
     margin: 0;
 }
 
-/* Collapsed bar is ~28px tall; add that to hero top padding */
-.hero {
-    padding-top: calc(var(--nav-height) + 28px + 4rem);
-}
-
 @media (max-width: 768px) {
     .wn-body-grid {
         grid-template-columns: 1fr;
-        gap: 1rem 0;
-        padding: 0.75rem 1.25rem 1rem;
+        gap: 1.5rem 0;
+    }
+    .wn-widget {
+        padding: 1.5rem 0 2rem;
+        margin-top: 2rem;
     }
 }
 
